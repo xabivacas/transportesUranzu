@@ -44,7 +44,18 @@ public class ModeloCamionero extends Conector {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 
+		 }
+		 public void delete(String dni) {
+			 String sql = "DELETE FROM CAMIONEROS WHERE DNI=?";
+			 try {
+				PreparedStatement pst = conexion.prepareStatement(sql);
+				pst.setString(1, dni);
+				
+				pst.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		 }
 	}
 

@@ -1,27 +1,26 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import modelo.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Camionero;
-import modelo.ModeloCamionero;
-
-
 /**
- * Servlet implementation class Store
+ * Servlet implementation class Index
  */
-@WebServlet("/Store")
-public class Store extends HttpServlet {
+@WebServlet("/PanelDeControl")
+public class PanelDeControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Store() {
+    public PanelDeControl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,16 +29,13 @@ public class Store extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		Camionero c = new Camionero();
-		c.setDni(request.getParameter("dni"));
-		c.setNombre(request.getParameter("nombre"));
-		c.setApellido(request.getParameter("apellido"));
-		
 		ModeloCamionero mc = new ModeloCamionero();
-		mc.insert(c);
-
-		response.sendRedirect("Index");
+		ArrayList<Camionero> camioneros = mc.getTodos();
+		
+		request.setAttribute("camioneros", camioneros);
+		
+		request.getRequestDispatcher("panelDeControl.jsp").forward(request,response);
+		
 	}
 
 	/**
