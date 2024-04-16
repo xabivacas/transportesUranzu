@@ -12,14 +12,14 @@ import modelo.ModeloCamionero;
 /**
  * Servlet implementation class Destroy
  */
-@WebServlet("/Destroy")
-public class Destroy extends HttpServlet {
+@WebServlet("/DestroyCamionero")
+public class DestroyCamionero extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Destroy() {
+    public DestroyCamionero() {
         super();
         // TODO Auto-generated constructor stub
     }

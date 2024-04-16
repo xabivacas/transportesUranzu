@@ -14,14 +14,14 @@ import modelo.ModeloCamionero;
 /**
  * Servlet implementation class Store
  */
-@WebServlet("/Store")
-public class Store extends HttpServlet {
+@WebServlet("/StoreCamionero")
+public class StoreCamionero extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Store() {
+    public StoreCamionero() {
         super();
         // TODO Auto-generated constructor stub
     }
