@@ -31,6 +31,32 @@ public class ModeloCamionero extends Conector {
 		        return camioneros;
 		    }
 		 
+		 public Camionero getUno(String dni) {
+			 Camionero c = new Camionero();
+			 String sql = "SELECT * FROM Camioneros WHERE dni=?";
+			 
+			 try {
+				PreparedStatement pst = conexion.prepareStatement(sql);
+				pst.setString(1,dni);
+				
+				ResultSet rs = pst.executeQuery();
+				
+				rs.next();
+				rellenarCamionero(c, rs);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return c;
+		 }
+		 
+		private void rellenarCamionero(Camionero c, ResultSet rs) throws SQLException {
+			c.setDni(rs.getString("dni"));
+			c.setNombre(rs.getString("Nombre"));
+			c.setApellido(rs.getString("apellido"));
+		}
+		 
 		 public void insert(Camionero c) {
 			 String sql = "INSERT INTO CAMIONEROS (DNI,NOMBRE,APELLIDO) VALUES (?,?,?)";
 			 try {
@@ -56,6 +82,22 @@ public class ModeloCamionero extends Conector {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		 }
+		 
+		 public void update(Camionero c) {
+			 String sql = "UPDATE CAMIONEROS SET NOMBRE=?, APELLIDO=? WHERE DNI=?";
+			 try {
+				PreparedStatement pst = conexion.prepareStatement(sql);
+				pst.setString(1, c.getNombre());
+				pst.setString(2, c.getApellido());
+				pst.setString(3, c.getDni());
+				
+				pst.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 
 		 }
 	}
 
