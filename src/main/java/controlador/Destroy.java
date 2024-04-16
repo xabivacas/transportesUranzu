@@ -30,7 +30,7 @@ public class Destroy extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ModeloCamionero cm = new ModeloCamionero();
 		cm.delete(request.getParameter("dni"));
-		response.sendRedirect("Index");
+		response.sendRedirect("PanelDeControl");
 	}
 
 	/**
