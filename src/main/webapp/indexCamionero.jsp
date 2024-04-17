@@ -13,16 +13,36 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 
-	<%@ include file="/partes/aside.jsp"%>
-	<main>
-		<%@ include file="/partes/navbar.jsp"%>
-		<div class="container">
-			<div class="row">
-				<table class="table">
+  <div class="menufijo container-fluid">
+    <!--Barra de navegacion-->
+    <header>
+      <nav class="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Barra de navegacion</a>
+        </div>
+      </nav>
+    </header>
+
+  </div>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Barra de navegacion</a>
+    </div>
+  </nav>
+
+
+
+  <!--Los datos y el aside para el insert-->
+  	<main>
+      <aside>
+        <%@ include file="/partes/formularioCamionero.jsp" %>
+      </aside>
+      <div class="datos">
+		<table class="table">
 					<thead>
 						<tr>
 							<th scope="col">DNI</th>
@@ -53,6 +73,7 @@
 							</a></td>
 						</tr>
 					</c:forEach>
+			</div>
 					<!-- Modales -->
 					<c:forEach items="${camioneros}" var="camionero">
 					<div class="modal fade" id="modal${camionero.dni }" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,8 +108,6 @@
 					</div>
 					</c:forEach>
 				</table>
-			</div>
-		</div>
 	</main>
 
 

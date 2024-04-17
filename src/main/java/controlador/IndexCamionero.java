@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Index
  */
-@WebServlet("/PanelDeControl")
-public class PanelDeControl extends HttpServlet {
+@WebServlet("/IndexCamionero")
+public class IndexCamionero extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PanelDeControl() {
+    public IndexCamionero() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,7 +34,7 @@ public class PanelDeControl extends HttpServlet {
 		
 		request.setAttribute("camioneros", camioneros);
 		
-		request.getRequestDispatcher("panelDeControl.jsp").forward(request,response);
+		request.getRequestDispatcher("indexCamionero.jsp").forward(request,response);
 		
 	}
 

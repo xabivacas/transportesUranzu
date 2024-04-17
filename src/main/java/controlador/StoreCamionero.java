@@ -39,7 +39,7 @@ public class StoreCamionero extends HttpServlet {
 		ModeloCamionero mc = new ModeloCamionero();
 		mc.insert(c);
 
-		response.sendRedirect("PanelDeControl");
+		response.sendRedirect("IndexCamionero");
 	}
 
 	/**
