@@ -16,12 +16,11 @@ public class ModeloCamionero extends Conector {
 		            Statement st = conexion.createStatement();
 		            ResultSet rs = st.executeQuery("SELECT * FROM camioneros");
 		            while (rs.next()) {
-		            	Camionero Camionero = new Camionero();
-		            	Camionero.setDni(rs.getString("DNI"));
-		            	Camionero.setNombre(rs.getString("Nombre"));
-		            	Camionero.setApellido(rs.getString("apellido"));
+		            	Camionero camionero = new Camionero();
+		            	rellenarCamionero(camionero, rs);
+						
 
-		            	camioneros.add(Camionero);
+		            	camioneros.add(camionero);
 		            }
 
 		        } catch (SQLException e) {

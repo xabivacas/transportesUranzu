@@ -39,24 +39,24 @@
   <!--Los datos y el aside para el insert-->
   	<main>
       <aside>
-        <%@ include file="/partes/formularioCamionero.jsp" %>
-		<a href="IndexCamion"> CAmiones</a>
+        <%@ include file="/partes/formularioCamion.jsp" %>
+		<a href="IndexCamion"> Camiones</a>
 		<a href="IndexCamionero"> Camioneros</a>
       </aside>
       <div class="datos">
 		<table class="table">
 					<thead>
 						<tr>
-							<th scope="col">DNI</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Apellido</th>
+							<th scope="col">Matricula</th>
+							<th scope="col">Marca</th>
+							<th scope="col">Modelo</th>
 						</tr>
 					</thead>
-					<c:forEach items="${camioneros}" var="camionero" >
+					<c:forEach items="${camiones}" var="camion" >
 						<tr>
-							<td>${camionero.dni}</td>
-							<td>${camionero.nombre}</td>
-							<td>${camionero.apellido}</td>
+							<td>${camion.matricula}</td>
+							<td>${camion.marca}</td>
+							<td>${camion.modelo}</td>
 							<td>
 								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal${camionero.dni }">
 

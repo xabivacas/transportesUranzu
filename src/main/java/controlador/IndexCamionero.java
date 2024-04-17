@@ -32,6 +32,7 @@ public class IndexCamionero extends HttpServlet {
 		ModeloCamionero mc = new ModeloCamionero();
 		ArrayList<Camionero> camioneros = mc.getTodos();
 		
+			
 		request.setAttribute("camioneros", camioneros);
 		
 		request.getRequestDispatcher("indexCamionero.jsp").forward(request,response);
