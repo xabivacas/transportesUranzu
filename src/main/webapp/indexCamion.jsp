@@ -40,8 +40,7 @@
   	<main>
       <aside>
         <%@ include file="/partes/formularioCamion.jsp" %>
-		<a href="IndexCamion"> Camiones</a>
-		<a href="IndexCamionero"> Camioneros</a>
+		<%@ include file="/partes/navegador.jsp" %>
       </aside>
       <div class="datos">
 		<table class="table">
@@ -58,7 +57,7 @@
 							<td>${camion.marca}</td>
 							<td>${camion.modelo}</td>
 							<td>
-								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal${camionero.dni }">
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal${camion.matricula }">
 
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"	fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
 	                                   <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
@@ -77,27 +76,27 @@
 					</c:forEach>
 			</div>
 					<!-- Modales -->
-					<c:forEach items="${camioneros}" var="camionero">
-					<div class="modal fade" id="modal${camionero.dni }" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<c:forEach items="${camiones}" var="camion">
+					<div class="modal fade" id="modal${camion.matricula }" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						  <div class="modal-dialog">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <h1 class="modal-title fs-5" id="label${camionero.dni }">Modificacion</h1>
+						        <h1 class="modal-title fs-5" id="label${camion.matricula }">Modificacion</h1>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
 						      
 						      <div class="modal-body">
-						        <form action="UpdateCamionero" method="post">
+						        <form action="UpdateCamion" method="post">
 						        
-						        	<input type="hidden" value="${camionero.dni }" name="dniMod" aria-describedby="nombreMod">
+						        	<input type="hidden" value="${camion.matricula }" name="matriculaMod" aria-describedby="nombreMod">
 								  <div class="mb-3">
-								    <label for="exampleInputEmail1" class="form-label">Nombre</label>
-								    <input type="text" class="form-control" id="nombreMod" name="nombreMod" aria-describedby="nombreMod">
+								    <label for="Marca" class="form-label">Marca</label>
+								    <input type="text" class="form-control" id="marcaMod" name="marcaMod" aria-describedby="marcaMod" value="${camion.marca}" placeholder="${camion.marca}"> 
 								  </div>
 								  
 								  <div class="mb-3">
-								    <label for="exampleInputPassword1" class="form-label">Apellido</label>
-								    <input type="text" class="form-control" id="apellidoMod" name="apellidoMod">
+								    <label for="Modelo" class="form-label">Modelo</label>
+								    <input type="text" class="form-control" id="modeloMod" name="modeloMod">
 								  </div>
 
 								  <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal">Guardar</button>

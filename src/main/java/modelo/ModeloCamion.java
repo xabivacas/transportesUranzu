@@ -62,4 +62,21 @@ public class ModeloCamion extends Conector{
 		}
 		
 	}
+	public void updateCamion(Camion c) {
+		String sql ="UPDATE CAMIONES SET MARCA=?,MODELO=? WHERE MATRICULA=?";
+		
+		try {
+			PreparedStatement pst = conexion.prepareStatement(sql);
+			
+			pst.setString(1, c.getMarca());
+			pst.setString(2, c.getModelo());
+			pst.setString(3, c.getMatricula());
+			
+			pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }

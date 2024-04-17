@@ -40,8 +40,7 @@
   	<main>
       <aside>
         <%@ include file="/partes/formularioCamionero.jsp" %>
-		<a href="IndexCamion"> CAmiones</a>
-		<a href="IndexCamionero"> Camioneros</a>
+		<%@ include file="/partes/navegador.jsp" %>
       </aside>
       <div class="datos">
 		<table class="table">
