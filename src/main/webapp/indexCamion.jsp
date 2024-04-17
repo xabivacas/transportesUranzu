@@ -66,7 +66,7 @@
 								</button>
 							</td>
 							
-							<td><a href="DestroyCamionero?dni=${camionero.dni}"> <svg
+							<td><a href="DestroyCamion?matricula=${camion.matricula}"> <svg
 										xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 										fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                                             <path

@@ -49,4 +49,17 @@ public class ModeloCamion extends Conector{
 		}
 		
 	}
+	public void deleteCamion(String matricula) {
+		String sql = "DELETE FROM CAMIONES WHERE MATRICULA=?";
+		
+		try {
+			PreparedStatement pst = conexion.prepareStatement(sql);
+			pst.setString(1, matricula);
+			pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
