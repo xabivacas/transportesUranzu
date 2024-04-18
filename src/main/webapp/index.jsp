@@ -35,7 +35,19 @@
       
       <!--Div del presupuesto-->
       <div class="presupuesto">
-
+        <div class="row patatas">
+          <div class="col-lg-4 col-md-4 offset-4 ">
+                <h3>Unete a nosotros para poder obtener nuestros servicios de paqueteria</h3>
+          </div>
+          <div class="col-lg-2 col-md-2 offset-6 ">
+            <ul class="nav nav-pills nav-fill">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#">Pedir Presupuesto</a>
+              </li>
+            </ul>
+          </div>
+            
+          </div>
       </div>
 
     <div class="servicios">
