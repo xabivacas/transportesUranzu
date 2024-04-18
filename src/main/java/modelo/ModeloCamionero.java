@@ -14,7 +14,7 @@ public class ModeloCamionero extends Conector {
 
 		        try {
 		            Statement st = conexion.createStatement();
-		            ResultSet rs = st.executeQuery("SELECT * FROM camioneros");
+		            ResultSet rs = st.executeQuery("SELECT * FROM CAMIONEROS");
 		            while (rs.next()) {
 		            	Camionero camionero = new Camionero();
 		            	rellenarCamionero(camionero, rs);
@@ -32,7 +32,7 @@ public class ModeloCamionero extends Conector {
 		 
 		 public Camionero getUno(String dni) {
 			 Camionero c = new Camionero();
-			 String sql = "SELECT * FROM Camioneros WHERE dni=?";
+			 String sql = "SELECT * FROM CAMIONEROS WHERE dni=?";
 			 
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);

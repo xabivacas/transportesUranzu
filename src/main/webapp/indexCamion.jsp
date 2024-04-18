@@ -19,13 +19,7 @@
 
   <div class="menufijo container-fluid">
     <!--Barra de navegacion-->
-    <header>
-      <nav class="navbar">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Barra de navegacion</a>
-        </div>
-      </nav>
-    </header>
+ <%@include file="/partes/header.jsp" %>
 
   </div>
   <nav class="navbar">
