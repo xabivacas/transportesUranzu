@@ -22,15 +22,15 @@
     <header>
       <nav class="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Barra de navegacion</a>
+          <img class="logo" src="imagenes/Logo.png" alt="">
         </div>
       </nav>
     </header>
-
   </div>
+
   <nav class="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Barra de navegacion</a>
+      <a class="navbar-brand" href="#"></a>
     </div>
   </nav>
 
