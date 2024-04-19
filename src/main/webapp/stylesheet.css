@@ -12,22 +12,29 @@ main{
     z-index: 2;
 
 }
+button{
+    background-color: crimson;
+    color: white;
+}
 aside{
-    background-color: rgb(176, 19, 51);
+    background-color: rgb(255, 255, 255);
     grid-column: 1/2;
     padding: 15% 2% 0% 2%;
     max-height: 90vh;
+    color: red;
 }
 header{
     grid-column: 1/5;
     -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    min-height: 10vh;
 }
 nav{
     color: crimson;
     border: solid 1px crimson;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    min-height: 10vh;
 }
 .datos{
    max-height: 90vh;

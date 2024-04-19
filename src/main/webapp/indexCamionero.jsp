@@ -17,22 +17,21 @@
 </head>
 <body>
 
-  <div class="menufijo container-fluid">
-    <!--Barra de navegacion-->
-    <header>
-      <nav class="navbar">
-        <div class="container-fluid">
-          <img class="logo" src="imagenes/Logo.png" alt="">
-        </div>
-      </nav>
-    </header>
-  </div>
+    <header class="container-fluid">    
+        
+          <div class="col-lg-4 offset-2 col-md-4">
+            <img src="recursos/logo-uranzu-transportes.jpg" class="shadow" alt="...">
+          </div>
 
-  <nav class="navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"></a>
-    </div>
-  </nav>
+          <div class="col-lg-2 col-md-4 offset-1" > 
+            <ul class="nav nav-pills nav-fill">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="IndexCamion">Iniciar Sesion</a>
+              </li>
+            </ul>
+          </div>
+    
+    </header>
 
 
 
