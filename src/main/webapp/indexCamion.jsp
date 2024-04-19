@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CRUD Camioneros</title>
+<title>CRUD Camiones</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,33 +17,30 @@
 </head>
 <body>
 
-	<!--Barra de navegacion-->
-    <header class="bg-light container-fluid shadow">    
-        
+
+
+    <header>    
+
         <div class="row">
 
-			<div class="col-lg-3 offset-1  col-md-4 col-6 ">
-				<img src="recursos/logo-uranzu-transportes.jpg" class="mt-3" alt="...">
-			</div>
+          <div class="col-lg-4  col-md-4 col-6 ">
+            <img src="recursos/logo-uranzu-transportes.jpg" class="shadow" alt="...">
+          </div>
 
-			<div class="col-lg-3 offset-5 col-md-2 col-6 " > 
-				<ul class="nav nav-pills nav-fill inicioSesion">
-					<li class="nav-item">
-						<a class="nav-link " aria-current="page" href="Index">
-							<button type="button" class="btn btn-danger">Cerrar sesion</button>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-  
- 	 </header>
-	 
-  <!--Cabecero falso para que quede bien la pagina-->
-  <div class="cabecerofalso"></div>
+          <div class="col-lg-2 col-md-2 col-6 " > 
+            <ul class="nav nav-pills nav-fill inicioSesion">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="IndexCamion">Iniciar Sesion</a>
+              </li>
+            </ul>
+          </div>
+    
+    </header>
 
 
-
+<!--Cabecero falso para que quede bien la pagina-->
+    <div class="cabecerofalso"></div>
+    
   <!--Los datos y el aside para el insert-->
   	<main class="container-fluid">
       <aside class="col-lg-2">
