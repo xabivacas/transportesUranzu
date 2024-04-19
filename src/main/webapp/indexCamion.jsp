@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CRUD Camioneros</title>
+<title>CRUD Camiones</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,14 +17,14 @@
 </head>
 <body>
 
-    <header class="">    
+    <header>    
         
-          <div class="col-lg-4 offset-2 col-md-4">
+          <div class="col-lg-4  col-md-4 col-6 ">
             <img src="recursos/logo-uranzu-transportes.jpg" class="shadow" alt="...">
           </div>
 
-          <div class="col-lg-2 col-md-4 offset-1" > 
-            <ul class="nav nav-pills nav-fill">
+          <div class="col-lg-2 col-md-2 col-6 " > 
+            <ul class="nav nav-pills nav-fill inicioSesion">
               <li class="nav-item">
                 <a class="nav-link " aria-current="page" href="IndexCamion">Iniciar Sesion</a>
               </li>
@@ -34,7 +34,8 @@
     </header>
 
 
-
+<!--Cabecero falso para que quede bien la pagina-->
+    <div class="cabecerofalso"></div>
   <!--Los datos y el aside para el insert-->
   	<main>
       <aside>
