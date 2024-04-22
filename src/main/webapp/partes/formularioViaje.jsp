@@ -18,3 +18,6 @@
                 <label for="exampleInputPassword1" class="form-label">Fecha</label>
                 <input type="text" class="form-control" id="fecha" name="fecha">
      		</div>
+            <button type="submit" value="guardar" name="guardar" class="btn btn-primary">Guardar</button>
+          </form>
+
