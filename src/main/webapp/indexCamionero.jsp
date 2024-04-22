@@ -13,36 +13,23 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+	<!-- Header -->
+	<%@include file="/partes/header.jsp" %>
+			
+	<!--Los datos y el aside para el insert-->
 
-    <header class="container-fluid">    
-        
-          <div class="col-lg-4 offset-2 col-md-4">
-            <img src="recursos/logo-uranzu-transportes.jpg" class="shadow" alt="...">
-          </div>
+	<main>
 
-          <div class="col-lg-2 col-md-4 offset-1" > 
-            <ul class="nav nav-pills nav-fill">
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="IndexCamion">Iniciar Sesion</a>
-              </li>
-            </ul>
-          </div>
-    
-    </header>
-
-
-<!--Cabecero falso para que quede bien la pagina-->
-    <div class="cabecerofalso"></div>
-  <!--Los datos y el aside para el insert-->
-  	<main>
-      <aside>
-        <%@ include file="/partes/formularioCamionero.jsp" %>
-		<%@ include file="/partes/navegador.jsp" %>
-      </aside>
-      <div class="datos">
+		<aside class="shadow bg-light">
+			<%@ include file="/partes/formularioCamionero.jsp" %>
+			<%@ include file="/partes/navegador.jsp" %>
+		</aside>
+		
+      <div class="datos m-4">
+      
 		<table class="table">
 					<thead>
 						<tr>
