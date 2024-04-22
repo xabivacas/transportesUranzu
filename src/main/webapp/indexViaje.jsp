@@ -81,7 +81,7 @@
 						        	<input type="hidden" value="${viaje.id }" name="idMod" aria-describedby="idMod">
 								  <div class="mb-3">
 								    <label for="Origen" class="form-label">Origen</label>
-								    <input type="text" class="form-control" id="origenMod" name="origenMod" aria-describedby="marcaMod" value="${camion.marca}" placeholder="${camion.marca}"> 
+								    <input type="text" class="form-control" id="origenMod" name="origenMod" aria-describedby="marcaMod" value="${viaje.origen}" placeholder="${viaje.origen}"> 
 								  </div>
 								  
 								  <div class="mb-3">

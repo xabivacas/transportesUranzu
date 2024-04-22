@@ -36,6 +36,7 @@ public class UpdateViaje extends HttpServlet {
 	ModeloViaje vm = new ModeloViaje();
 	Viaje v = new Viaje();
 	
+	v.setId(Integer.parseInt(request.getParameter("idMod")));
 	String fechaModParam = request.getParameter("fechaMod");
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     try {
