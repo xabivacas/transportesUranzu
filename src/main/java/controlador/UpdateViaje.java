@@ -46,7 +46,6 @@ public class UpdateViaje extends HttpServlet {
 		e.printStackTrace();
 	}
 	
-	v.setId(Integer.parseInt(request.getParameter("idMod")));
 	v.setOrigen(request.getParameter("origenMod"));
 	v.setDestino(request.getParameter("destinoMod"));
 

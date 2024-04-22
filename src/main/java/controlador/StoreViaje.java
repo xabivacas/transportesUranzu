@@ -37,7 +37,7 @@ public class StoreViaje extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		Viaje v = new Viaje();
-		String fechaModParam = request.getParameter("fechaMod");
+		String fechaModParam = request.getParameter("fecha");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	    try {
 			Date fechaMod = dateFormat.parse(fechaModParam);
@@ -47,9 +47,8 @@ public class StoreViaje extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		v.setId(Integer.parseInt(request.getParameter("idMod")));
-		v.setOrigen(request.getParameter("origenMod"));
-		v.setDestino(request.getParameter("destinoMod"));
+		v.setOrigen(request.getParameter("origen"));
+		v.setDestino(request.getParameter("destino"));
 		
 		ModeloViaje mv = new ModeloViaje();
 		mv.insert(v);

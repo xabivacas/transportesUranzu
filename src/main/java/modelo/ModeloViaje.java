@@ -60,16 +60,16 @@ public class ModeloViaje extends Conector {
 		}
 		 
 		 public void insert(Viaje v) {
-			 String sql = "INSERT INTO VIAJES (ID,ORIGEN,DESTINO,FECHA) VALUES (?,?,?)";
+			 String sql = "INSERT INTO VIAJES (ORIGEN,DESTINO,FECHA) VALUES (?,?,?)";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				java.util.Date fecha = v.getFecha();
 				java.sql.Date sqlDate = new java.sql.Date(fecha.getTime());
 				
-				pst.setInt(1, v.getId());
-				pst.setString(2, v.getOrigen());
-				pst.setString(3, v.getDestino());
-				pst.setDate(4,  sqlDate);
+				
+				pst.setString(1, v.getOrigen());
+				pst.setString(2, v.getDestino());
+				pst.setDate(3,  sqlDate);
 				
 				pst.execute();
 			} catch (SQLException e) {
@@ -91,17 +91,18 @@ public class ModeloViaje extends Conector {
 		 }
 		 
 		 public void update(Viaje v) {
-			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=?, FECHA=?  WHERE DNI=?";
+			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=?, FECHA=?  WHERE ID=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				java.util.Date fecha = v.getFecha();
 				java.sql.Date sqlDate = new java.sql.Date(fecha.getTime());
 
 				
-				pst.setInt(1, v.getId());
-				pst.setString(2, v.getOrigen());
-				pst.setString(3, v.getDestino());
-				pst.setDate(4, sqlDate);
+				
+				pst.setString(1, v.getOrigen());
+				pst.setString(2, v.getDestino());
+				pst.setDate(3, sqlDate);
+				pst.setInt(4, v.getId());
 				
 		        // Establecer la fecha en el PreparedStatement
 		      
