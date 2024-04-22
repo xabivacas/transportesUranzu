@@ -1,17 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-      <form action="StoreCamion" method="post">
+      <form action="StoreViaje" method="post">
             <div class="mb-3">
-              <label for="id" class="form-label">id</label>
-              <input type="text" class="form-control" id="id" name="id" aria-describedby="id">
+              <label for="exampleInputEmail1" class="form-label">ID</label>
+              <input type="text" class="form-control" id="dni" name="dni" aria-describedby="dni">
             </div>
             <div class="mb-3">
-              <label for="Origen" class="form-label"></label>
-              <input type="text" class="form-control" id="marca" name="marca">
+              <label for="exampleInputPassword1" class="form-label">Origen</label>
+              <input type="text" class="form-control" id="nombre" name="nombre">
             </div>
             <div class="mb-3">
-                <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" class="form-control" id="modelo" name="modelo">
+                <label for="exampleInputPassword1" class="form-label">Destino</label>
+                <input type="text" class="form-control" id="apellido" name="apellido">
+              </div>
+             <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Fecha</label>
+                <input type="text" class="form-control" id="apellido" name="apellido">
               </div>
             <button type="submit" value="guardar" name="guardar" class="btn btn-primary">Guardar</button>
           </form>
