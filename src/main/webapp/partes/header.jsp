@@ -12,7 +12,7 @@
 				<div class="col-lg-2 col-md-2 col-6 ">
 					<ul class="nav nav-pills nav-fill inicioSesion">
 						<li class="nav-item">
-							<a class="nav-link " aria-current="page" href="IndexCamion">Iniciar Sesion</a>
+							<a class="nav-link " aria-current="page" href="Index">Cerrar Sesion</a>
 						</li>
 					</ul>
 				</div>
