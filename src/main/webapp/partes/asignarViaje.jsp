@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
  <br>
  <hr>
- <form action="asignarViaje" method="POST" class="bg-light">
+ <form action="AsignarViaje" method="POST" class="bg-light">
 	<div class="mb-3">
 	<label>Viaje</label>
 	<select name="viaje">
