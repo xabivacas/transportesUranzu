@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Camion;
-import modelo.ModeloCamion;
+import modelo.*;
 
 /**
  * Servlet implementation class IndexCamion
@@ -32,8 +31,12 @@ public class IndexCamion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Camion> camiones = new ModeloCamion().getAll();
+		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
+		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
 		
 		request.setAttribute("camiones", camiones);
+		request.setAttribute("camioneros", camioneros);
+		request.setAttribute("viajes", viajes);
 		request.getRequestDispatcher("indexCamion.jsp").forward(request, response);
 	}
 
