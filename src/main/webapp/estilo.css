@@ -8,7 +8,6 @@ header{
     align-items: center;
     margin: 0;
 }
-
 .presupuesto{
     width: 100%;
     height: 840px;
@@ -24,8 +23,6 @@ header{
     opacity: 50%;  
     position: fixed;
 }
-
-
 h3{
     color: #ffffff;
 }
