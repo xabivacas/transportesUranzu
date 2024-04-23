@@ -30,6 +30,22 @@ public class ModeloViaje extends Conector {
 		        }
 		        return viajes;
 		    }
+		 public void asignarViaje(Viaje viaje,Camion camion ,Camionero camionero) {
+			 String sql = "INSERT INTO VIAJE_CAMIONES_CAMIONEROS (CAMIONERO,MATRICULA,VIAJE) VALUES (?,?,?)";
+			 
+			 try {
+				PreparedStatement pst = conexion.prepareStatement(sql);
+				pst.setString(1, camionero.getDni());
+				pst.setString(2, camion.getMatricula());
+				pst.setInt(3, viaje.getId());
+				
+				pst.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 
+		 }
 		 
 		 public Viaje getUno(int id) {
 			 Viaje v = new Viaje();
