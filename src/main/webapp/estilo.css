@@ -7,6 +7,7 @@ header{
     justify-content: space-around;
     align-items: center;
     margin: 0;
+    visibility: visible;
 }
 .presupuesto{
     width: 100%;
@@ -129,3 +130,9 @@ nav{
     height: 10px;
     width: 25%;
 }
+
+@media (max-width: 1250px) {
+    header {
+        @include visually-hidden;
+      }
+  }

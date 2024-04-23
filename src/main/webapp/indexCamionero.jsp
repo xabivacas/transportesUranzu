@@ -25,6 +25,7 @@
 
 		<aside class="shadow bg-light">
 			<%@ include file="/partes/formularioCamionero.jsp" %>
+			<%@ include file="/partes/asignarViaje.jsp" %>
 			<%@ include file="/partes/navegador.jsp" %>
 		</aside>
 		

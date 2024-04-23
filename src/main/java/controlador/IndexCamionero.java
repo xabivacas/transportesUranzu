@@ -29,8 +29,13 @@ public class IndexCamionero extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloCamionero mc = new ModeloCamionero();
-		ArrayList<Camionero> camioneros = mc.getTodos();
+		ArrayList<Camion> camiones = new ModeloCamion().getAll();
+		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
+		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
+		
+		request.setAttribute("camiones", camiones);
+		request.setAttribute("camioneros", camioneros);
+		request.setAttribute("viajes", viajes);
 		
 			
 		request.setAttribute("camioneros", camioneros);

@@ -22,9 +22,19 @@
 
 	<main>
 
-		<aside class="shadow bg-light">
+		<aside class=" bg-light">
+			<button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Insertar Viaje</button>
+
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title" id="offcanvasBottomLabel">Insertar Viaje</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body small">
 			<%@ include file="/partes/formularioViaje.jsp" %>
 			<%@ include file="/partes/navegador.jsp" %>
+			</div>
+			</div>
 		</aside>
       <div class="datos">
 		<table class="table">
