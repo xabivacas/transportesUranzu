@@ -1,4 +1,4 @@
-package controlador;
+package controlador.viaje;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Index
  */
-@WebServlet("/IndexCamionero")
-public class IndexCamionero extends HttpServlet {
+@WebServlet("/IndexViaje")
+public class IndexViaje extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexCamionero() {
+    public IndexViaje() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,18 +29,13 @@ public class IndexCamionero extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Camion> camiones = new ModeloCamion().getAll();
-		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
-		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
-		
-		request.setAttribute("camiones", camiones);
-		request.setAttribute("camioneros", camioneros);
-		request.setAttribute("viajes", viajes);
+		ModeloViaje mv = new ModeloViaje();
+		ArrayList<Viaje> viajes = mv.getTodos();
 		
 			
-		request.setAttribute("camioneros", camioneros);
+		request.setAttribute("viajes", viajes);
 		
-		request.getRequestDispatcher("indexCamionero.jsp").forward(request,response);
+		request.getRequestDispatcher("indexViaje.jsp").forward(request,response);
 		
 	}
 

@@ -1,4 +1,4 @@
-package controlador;
+package controlador.camion;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Camionero;
-import modelo.ModeloCamionero;
+import modelo.Camion;
+import modelo.ModeloCamion;
 
 /**
- * Servlet implementation class UpdateCamionero
+ * Servlet implementation class StoreCamion
  */
-@WebServlet("/UpdateCamionero")
-public class UpdateCamionero extends HttpServlet {
+@WebServlet("/StoreCamion")
+public class StoreCamion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateCamionero() {
+    public StoreCamion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,14 +29,15 @@ public class UpdateCamionero extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	ModeloCamionero cm = new ModeloCamionero();
-	Camionero c = new Camionero();
-	c.setDni(request.getParameter("dniMod"));
-	c.setNombre(request.getParameter("nombreMod"));
-	c.setApellido(request.getParameter("apellidoMod"));
-	
-	cm.update(c);
-	response.sendRedirect("IndexCamionero");
+		Camion c = new Camion();
+		
+		c.setMatricula(request.getParameter("matricula"));
+		c.setMarca(request.getParameter("marca"));
+		c.setModelo(request.getParameter("modelo"));
+		
+		new ModeloCamion().insertCamion(c);
+		
+		response.sendRedirect("IndexCamion");
 	}
 
 	/**
