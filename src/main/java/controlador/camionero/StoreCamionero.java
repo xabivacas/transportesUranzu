@@ -1,30 +1,27 @@
-package controlador;
+package controlador.camionero;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Viaje;
-import modelo.ModeloViaje;
+import modelo.Camionero;
+import modelo.ModeloCamionero;
+
 
 /**
- * Servlet implementation class UpdateCamionero
+ * Servlet implementation class Store
  */
-@WebServlet("/UpdateViaje")
-public class UpdateViaje extends HttpServlet {
+@WebServlet("/StoreCamionero")
+public class StoreCamionero extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateViaje() {
+    public StoreCamionero() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,27 +30,16 @@ public class UpdateViaje extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	ModeloViaje vm = new ModeloViaje();
-	Viaje v = new Viaje();
-	
-	v.setId(Integer.parseInt(request.getParameter("idMod")));
-	String fechaModParam = request.getParameter("fechaMod");
-	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    try {
-		Date fechaMod = dateFormat.parse(fechaModParam);
-		v.setFecha(fechaMod);
-	} catch (ParseException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	v.setOrigen(request.getParameter("origenMod"));
-	v.setDestino(request.getParameter("destinoMod"));
 
+		Camionero c = new Camionero();
+		c.setDni(request.getParameter("dni"));
+		c.setNombre(request.getParameter("nombre"));
+		c.setApellido(request.getParameter("apellido"));
+		
+		ModeloCamionero mc = new ModeloCamionero();
+		mc.insert(c);
 
-	
-	vm.update(v);
-	response.sendRedirect("IndexViaje");
+		response.sendRedirect("IndexCamionero");
 	}
 
 	/**

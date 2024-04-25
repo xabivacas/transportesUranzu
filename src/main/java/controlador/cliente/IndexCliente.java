@@ -1,4 +1,4 @@
-package controlador;
+package controlador.cliente;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloCamionero;
+import modelo.ModeloCliente;
 
 /**
- * Servlet implementation class Destroy
+ * Servlet implementation class IndexCliente
  */
-@WebServlet("/DestroyCamionero")
-public class DestroyCamionero extends HttpServlet {
+@WebServlet("/IndexCliente")
+public class IndexCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DestroyCamionero() {
+    public IndexCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +28,9 @@ public class DestroyCamionero extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloCamionero cm = new ModeloCamionero();
-		cm.delete(request.getParameter("dni"));
-		response.sendRedirect("IndexCamionero");
+		request.setAttribute("clientes", new ModeloCliente().getTodos());
+		
+		request.getRequestDispatcher("indexCliente.jsp").forward(request,response);
 	}
 
 	/**

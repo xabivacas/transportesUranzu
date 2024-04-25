@@ -1,32 +1,25 @@
-package controlador;
+package controlador.camionero;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Camionero;
-import modelo.ModeloViaje;
-import modelo.Viaje;
-
+import modelo.ModeloCamionero;
 
 /**
- * Servlet implementation class Store
+ * Servlet implementation class Destroy
  */
-@WebServlet("/StoreViaje")
-public class StoreViaje extends HttpServlet {
+@WebServlet("/DestroyCamionero")
+public class DestroyCamionero extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreViaje() {
+    public DestroyCamionero() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,25 +28,9 @@ public class StoreViaje extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		Viaje v = new Viaje();
-		String fechaModParam = request.getParameter("fecha");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	    try {
-			Date fechaMod = dateFormat.parse(fechaModParam);
-			v.setFecha(fechaMod);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		v.setOrigen(request.getParameter("origen"));
-		v.setDestino(request.getParameter("destino"));
-		
-		ModeloViaje mv = new ModeloViaje();
-		mv.insert(v);
-
-		response.sendRedirect("IndexViaje");
+		ModeloCamionero cm = new ModeloCamionero();
+		cm.delete(request.getParameter("dni"));
+		response.sendRedirect("IndexCamionero");
 	}
 
 	/**
