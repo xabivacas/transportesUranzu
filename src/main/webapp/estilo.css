@@ -134,8 +134,3 @@ nav{
     width: 25%;
 }
 
-@media (max-width: 1250px) {
-    header {
-        @include visually-hidden;
-      }
-  }

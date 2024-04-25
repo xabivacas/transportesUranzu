@@ -43,7 +43,9 @@
           <div class=" row col-1 col-lg-2 col-md-2 offset-5  offset-lg-5 ">
             <ul class="nav nav-pills nav-fill">
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="#">Pedir Presupuesto</a>
+               <button type="button" class="btn btn-danger nav-link" data-bs-toggle="modal" data-bs-target="#pedirPresupuesto">
+  					Pedir Presupuesto
+				</button>
               </li>
             </ul>
           </div>
@@ -83,6 +85,43 @@
           </div>
         </div>
     </main>
+    
+    		
+		<!-- Modal -->
+		<div class="modal fade" id="pedirPresupuesto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h1 class="modal-title fs-5" id="exampleModalLabel">Pedir presupuesto</h1>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		      
+		        <form>
+				<div class="mb-3">
+				<p>Inserte los datos y nuestro equipo contactara con usted en un plazo de 2 meses a 2 años</p>
+				  <label for="email" class="form-label">Email</label>
+				  <input type="email" class="form-control" id="formEmail" placeholder="ejemplo@ejemplo.com">
+				</div>
+				<div class="mb-3">
+				  <label for="nombre" class="form-label">Nombre</label>
+				  <input type="text" class="form-control" id="formNombre" placeholder="Pepe">
+				</div>
+				<div class="mb-3">
+				  <label for="descripcion" class="form-label" ></label>
+				  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" palceholder="Inserte aqui una breve descripcion"></textarea>
+				</div>
+				  <button type="submit" class="btn btn-danger">Enviar</button>
+				</form>
+				
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-danger">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
     <footer>
       <div class="col-lg-6 offset-lg-3 offset-md-2 container">
         <div class="row">
@@ -102,5 +141,16 @@
         </div>
       </div>
     </footer>
+    
+    			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+				integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+				crossorigin="anonymous"></script>
+
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+				integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+				crossorigin="anonymous"></script>
+    
   </body>
 </html>
