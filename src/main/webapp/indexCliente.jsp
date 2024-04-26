@@ -31,7 +31,7 @@
 			<main>
 
 				<aside class="shadow bg-light">
-					<%@ include file="/partes/formularioCamion.jsp" %>
+					<%@ include file="/partes/formularioCliente.jsp" %>
 					<%@ include file="/partes/asignarViaje.jsp" %>
 					<%@ include file="/partes/navegador.jsp" %>
 				</aside>
