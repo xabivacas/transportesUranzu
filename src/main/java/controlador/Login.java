@@ -1,4 +1,4 @@
-package controlador.cliente;
+package controlador;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloCliente;
-
 /**
-<<<<<<< HEAD
- * Servlet implementation class Destroy
+ * Servlet implementation class Login
  */
-@WebServlet("/DestroyCliente")
-public class DestroyCliente extends HttpServlet {
+@WebServlet("/Login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DestroyCliente() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,9 +26,8 @@ public class DestroyCliente extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloCliente cm = new ModeloCliente();
-		cm.delete(request.getParameter("dni"));
-		response.sendRedirect("IndexCamionero");
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -43,4 +39,3 @@ public class DestroyCliente extends HttpServlet {
 	}
 
 }
-
