@@ -52,7 +52,7 @@
 	                                  </svg>
 								</button>
 							<a href="DestroyCamionero?dni=${camionero.dni}"> 
-							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal${camionero.dni }">
+							<button type="button" class="btn btn-danger">
 							<svg
 							
 										xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -81,15 +81,17 @@
 						        	<input type="hidden" value="${camionero.dni }" name="dniMod" aria-describedby="nombreMod">
 								  <div class="mb-3">
 								    <label for="exampleInputEmail1" class="form-label">Nombre</label>
-								    <input type="text" class="form-control" id="nombreMod" name="nombreMod" aria-describedby="nombreMod">
+								    <input type="text" class="form-control" id="nombreMod" name="nombreMod" aria-describedby="nombreMod" value="${camionero.nombre}"
+												placeholder="${camionero.nombre}">
 								  </div>
 								  
 								  <div class="mb-3">
 								    <label for="exampleInputPassword1" class="form-label">Apellido</label>
-								    <input type="text" class="form-control" id="apellidoMod" name="apellidoMod">
+								    <input type="text" class="form-control" id="apellidoMod" name="apellidoMod" value="${camionero.apellido}"
+												placeholder="${camionero.apellido}">
 								  </div>
 
-								  <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal">Guardar</button>
+								  <button type="submit" class="btn btn-danger"  data-bs-dismiss="modal">Guardar</button>
 								  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 								</form>
 								

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <br>
+     
+     <p class="h4"> Insertar Camion</p>
+     <hr>
       <form action="StoreCamion" method="post" class="bg-light">
             <div class="mb-3">
               <label for="matricula" class="form-label">Matricula</label>

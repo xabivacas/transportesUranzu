@@ -1,4 +1,4 @@
-package controlador;
+package controlador.camionero;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class IndexCamionero extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Camion> camiones = new ModeloCamion().getAll();
+		ArrayList<Camion> camiones = new ModeloCamion().getTodos();
 		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
 		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
 		

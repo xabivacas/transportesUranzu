@@ -1,4 +1,4 @@
-package controlador;
+package controlador.cliente;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloCamionero;
+import modelo.Cliente;
+import modelo.ModeloCliente;
+
 
 /**
- * Servlet implementation class Destroy
+ * Servlet implementation class Store
  */
-@WebServlet("/DestroyCamionero")
-public class DestroyCamionero extends HttpServlet {
+@WebServlet("/StoreCliente")
+public class StoreCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DestroyCamionero() {
+    public StoreCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +30,16 @@ public class DestroyCamionero extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloCamionero cm = new ModeloCamionero();
-		cm.delete(request.getParameter("dni"));
-		response.sendRedirect("IndexCamionero");
+
+		Cliente cl = new Cliente();
+		cl.setCif(request.getParameter("cif"));
+		cl.setNombre(request.getParameter("nombre"));
+		cl.setDireccion(request.getParameter("direccion"));
+		
+		ModeloCliente mc = new ModeloCliente();
+		mc.insert(cl);
+
+		response.sendRedirect("IndexCliente");
 	}
 
 	/**

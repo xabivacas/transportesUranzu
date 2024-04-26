@@ -1,32 +1,25 @@
 package controlador;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Camionero;
-import modelo.ModeloViaje;
-import modelo.Viaje;
-
+import modelo.*;
 
 /**
- * Servlet implementation class Store
+ * Servlet implementation class asignarViaje
  */
-@WebServlet("/StoreViaje")
-public class StoreViaje extends HttpServlet {
+@WebServlet("/AsignarViaje")
+public class AsignarViaje extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreViaje() {
+    public AsignarViaje() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,25 +28,13 @@ public class StoreViaje extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		Viaje v = new Viaje();
-		String fechaModParam = request.getParameter("fecha");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	    try {
-			Date fechaMod = dateFormat.parse(fechaModParam);
-			v.setFecha(fechaMod);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Viaje v = new ModeloViaje().getUno(Integer.parseInt(request.getParameter("viaje")));
+		Camionero camionero = new ModeloCamionero().getUno(request.getParameter("camionero"));
+		Camion camion = new ModeloCamion().getUno(request.getParameter("camion"));
 		
-		v.setOrigen(request.getParameter("origen"));
-		v.setDestino(request.getParameter("destino"));
+		new ModeloViaje().asignarViaje(v, camion, camionero);
 		
-		ModeloViaje mv = new ModeloViaje();
-		mv.insert(v);
-
-		response.sendRedirect("IndexViaje");
+		response.sendRedirect("IndexCamion");
 	}
 
 	/**

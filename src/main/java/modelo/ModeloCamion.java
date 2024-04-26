@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ModeloCamion extends Conector{
 
-	public ArrayList<Camion> getAll(){
+	public ArrayList<Camion> getTodos(){
 		ArrayList<Camion> camiones = new ArrayList<>();
 		String sql = "SELECT * FROM CAMIONES";
 		
@@ -18,9 +18,7 @@ public class ModeloCamion extends Conector{
 			while(rs.next()) {
 				Camion c = new Camion();
 				
-				c.setMatricula(rs.getString("matricula"));
-				c.setMarca(rs.getString("marca"));
-				c.setModelo(rs.getString("modelo"));
+				rellenarCamion(c, rs);
 				
 				camiones.add(c);
 			}
@@ -30,6 +28,34 @@ public class ModeloCamion extends Conector{
 		}
 		
 		return camiones;
+	}
+	public Camion getUno(String matricula) {
+		Camion c = new Camion();
+		String sql = "SELECT * FROM CAMIONES WHERE MATRICULA=?";
+		
+		try {
+			PreparedStatement pst = conexion.prepareStatement(sql);
+			pst.setString(1, matricula);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			rs.next();
+				
+			rellenarCamion(c, rs);
+				
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return c;
+	}
+	
+	private void rellenarCamion(Camion c, ResultSet rs) throws SQLException {
+		c.setMatricula(rs.getString("matricula"));
+		c.setMarca(rs.getString("marca"));
+		c.setModelo(rs.getString("modelo"));
 	}
 	
 	public void insertCamion(Camion c) {

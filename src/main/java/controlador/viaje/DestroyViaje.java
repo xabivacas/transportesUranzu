@@ -1,4 +1,4 @@
-package controlador;
+package controlador.viaje;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.*;
+import modelo.ModeloViaje;
 
 /**
- * Servlet implementation class UpdateCamion
+ * Servlet implementation class Destroy
  */
-@WebServlet("/UpdateCamion")
-public class UpdateCamion extends HttpServlet {
+@WebServlet("/DestroyViaje")
+public class DestroyViaje extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateCamion() {
+    public DestroyViaje() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,15 +28,9 @@ public class UpdateCamion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Camion c = new Camion();
-		
-		c.setMatricula(request.getParameter("matriculaMod"));
-		c.setMarca(request.getParameter("marcaMod"));
-		c.setModelo(request.getParameter("modeloMod"));
-		
-		new ModeloCamion().updateCamion(c);
-		
-		response.sendRedirect("IndexCamion");
+		ModeloViaje vm = new ModeloViaje();
+		vm.delete(request.getParameter("id"));
+		response.sendRedirect("IndexViaje");
 	}
 
 	/**

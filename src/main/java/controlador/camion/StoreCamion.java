@@ -1,27 +1,26 @@
-package controlador;
+package controlador.camion;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.*;
+import modelo.Camion;
+import modelo.ModeloCamion;
 
 /**
- * Servlet implementation class IndexCamion
+ * Servlet implementation class StoreCamion
  */
-@WebServlet("/IndexCamion")
-public class IndexCamion extends HttpServlet {
+@WebServlet("/StoreCamion")
+public class StoreCamion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexCamion() {
+    public StoreCamion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,14 +29,15 @@ public class IndexCamion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Camion> camiones = new ModeloCamion().getAll();
-		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
-		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
+		Camion c = new Camion();
 		
-		request.setAttribute("camiones", camiones);
-		request.setAttribute("camioneros", camioneros);
-		request.setAttribute("viajes", viajes);
-		request.getRequestDispatcher("indexCamion.jsp").forward(request, response);
+		c.setMatricula(request.getParameter("matricula"));
+		c.setMarca(request.getParameter("marca"));
+		c.setModelo(request.getParameter("modelo"));
+		
+		new ModeloCamion().insertCamion(c);
+		
+		response.sendRedirect("IndexCamion");
 	}
 
 	/**
