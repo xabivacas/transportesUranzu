@@ -22,6 +22,9 @@ main{
     z-index: 1;
 }
 
+a{
+    text-decoration: none;
+}
 
 .presupuesto{
     width: 100%;
