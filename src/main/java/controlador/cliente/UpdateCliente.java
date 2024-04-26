@@ -1,8 +1,6 @@
-package controlador.camion;
+package controlador.cliente;
 
 import java.io.IOException;
-import java.util.*;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.*;
 
 /**
- * Servlet implementation class IndexCamion
+ * Servlet implementation class UpdateCamion
  */
-@WebServlet("/IndexCamion")
-public class IndexCamion extends HttpServlet {
+@WebServlet("/UpdateCliente")
+public class UpdateCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexCamion() {
+    public UpdateCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,14 +28,15 @@ public class IndexCamion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Camion> camiones = new ModeloCamion().getTodos();
-		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
-		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
+		Cliente cl = new Cliente();
 		
-		request.setAttribute("camiones", camiones);
-		request.setAttribute("camioneros", camioneros);
-		request.setAttribute("viajes", viajes);
-		request.getRequestDispatcher("indexCamion.jsp").forward(request, response);
+		cl.setCif(request.getParameter("cifMod"));
+		cl.setNombre(request.getParameter("nombraMod"));
+		cl.setDireccion(request.getParameter("modeloMod"));
+		
+		new ModeloCliente().update(cl);
+		
+		response.sendRedirect("IndexCamion");
 	}
 
 	/**

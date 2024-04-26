@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.ModeloCliente;
 
 /**
- * Servlet implementation class DestroyCliente
+<<<<<<< HEAD
+ * Servlet implementation class Destroy
  */
 @WebServlet("/DestroyCliente")
 public class DestroyCliente extends HttpServlet {
@@ -28,7 +29,9 @@ public class DestroyCliente extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		new ModeloCliente().delete(request.getParameter("cif"));
+		ModeloCliente cm = new ModeloCliente();
+		cm.delete(request.getParameter("cif"));
+		response.sendRedirect("IndexCliente");
 	}
 
 	/**
@@ -40,3 +43,4 @@ public class DestroyCliente extends HttpServlet {
 	}
 
 }
+

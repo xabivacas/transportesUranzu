@@ -30,10 +30,49 @@ public class ModeloCliente extends Conector{
 		return clientes;
 		
 	}
-	public void delete(String cif) {
-		String sql ="EXECUTE DELETE_CLIENTE(?)";
-		
-		try {
+	 public Cliente getUno(String cif) {
+		 Cliente cl = new Cliente();
+		 String sql = "SELECT * FROM CLIENTES WHERE CIF=?";
+		 
+		 try {
+			PreparedStatement pst = conexion.prepareStatement(sql);
+			pst.setString(1,cif);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			rs.next();
+			rellenarCliente(cl, rs);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 return cl;
+	 }
+	 
+	private void rellenarCliente(Cliente cl, ResultSet rs) throws SQLException {
+		cl.setCif(rs.getString("cif"));
+		cl.setNombre(rs.getString("nombre"));
+		cl.setDireccion(rs.getString("direccion"));
+	}
+	 
+	 public void insert(Cliente cl) {
+		 String sql = "INSERT INTO CLIENTES (CIF,NOMBRE,DIRECCION) VALUES (?,?,?)";
+		 try {
+			PreparedStatement pst = conexion.prepareStatement(sql);
+			pst.setString(1, cl.getCif());
+			pst.setString(2, cl.getNombre());
+			pst.setString(3, cl.getDireccion());
+			
+			pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	 }
+	 public void delete(String cif) {
+		 String sql = "DELETE FROM CLIENTES WHERE CIF=?";
+		 try {
 			PreparedStatement pst = conexion.prepareStatement(sql);
 			pst.setString(1, cif);
 			
@@ -42,8 +81,21 @@ public class ModeloCliente extends Conector{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-	}
+	 }
+	 
+	 public void update(Cliente cl) {
+		 String sql = "UPDATE CAMIONEROS SET NOMBRE=?, APELLIDO=? WHERE CIF=?";
+		 try {
+			PreparedStatement pst = conexion.prepareStatement(sql);
+			pst.setString(1, cl.getNombre());
+			pst.setString(2, cl.getDireccion());
+			pst.setString(3, cl.getCif());
+			
+			pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+	 }
 }
