@@ -7,20 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloCliente;
+import modelo.*;
 
 /**
-<<<<<<< HEAD
- * Servlet implementation class Destroy
+ * Servlet implementation class UpdateCamion
  */
-@WebServlet("/DestroyCliente")
-public class DestroyCliente extends HttpServlet {
+@WebServlet("/UpdateCliente")
+public class UpdateCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DestroyCliente() {
+    public UpdateCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,9 +28,15 @@ public class DestroyCliente extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloCliente cm = new ModeloCliente();
-		cm.delete(request.getParameter("cif"));
-		response.sendRedirect("IndexCliente");
+		Cliente cl = new Cliente();
+		
+		cl.setCif(request.getParameter("cifMod"));
+		cl.setNombre(request.getParameter("nombraMod"));
+		cl.setDireccion(request.getParameter("modeloMod"));
+		
+		new ModeloCliente().update(cl);
+		
+		response.sendRedirect("IndexCamion");
 	}
 
 	/**
@@ -43,4 +48,3 @@ public class DestroyCliente extends HttpServlet {
 	}
 
 }
-
