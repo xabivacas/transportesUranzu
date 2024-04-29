@@ -1,25 +1,26 @@
-package controlador;
+package controlador.carga;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import modelo.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.*;
-
 /**
- * Servlet implementation class asignarViaje
+ * Servlet implementation class Index
  */
-@WebServlet("/AsignarViaje")
-public class AsignarViaje extends HttpServlet {
+@WebServlet("/IndexCarga")
+public class IndexCarga extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AsignarViaje() {
+    public IndexCarga() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,13 +29,20 @@ public class AsignarViaje extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Viaje v = new ModeloViaje().getUno(Integer.parseInt(request.getParameter("viaje")));
-		Camionero camionero = new ModeloCamionero().getUno(request.getParameter("camionero"));
-		Camion camion = new ModeloCamion().getUno(request.getParameter("camion"));
+		ArrayList<Camion> camiones = new ModeloCamion().getTodos();
+		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
+		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
+		ArrayList<Carga> cargas= new ModeloCarga().getTodos();
 		
-		new ModeloViaje().asignarViaje(v, camion, camionero);
+		request.setAttribute("camiones", camiones);
+		request.setAttribute("camioneros", camioneros);
+		request.setAttribute("viajes", viajes);
 		
-		response.sendRedirect("IndexCamion");
+			
+		request.setAttribute("camioneros", camioneros);
+		
+		request.getRequestDispatcher("indexCamionero.jsp").forward(request,response);
+		
 	}
 
 	/**

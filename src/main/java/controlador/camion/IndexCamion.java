@@ -33,7 +33,6 @@ public class IndexCamion extends HttpServlet {
 		ArrayList<Camion> camiones = new ModeloCamion().getTodos();
 		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
 		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
-		
 		request.setAttribute("camiones", camiones);
 		request.setAttribute("camioneros", camioneros);
 		request.setAttribute("viajes", viajes);
