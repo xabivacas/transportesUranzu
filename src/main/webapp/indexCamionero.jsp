@@ -77,21 +77,19 @@
 							</tr>
 						</thead>
 						<c:forEach items="${camioneros}" var="camionero" >
-							<tr>
+							<tr class="accordion-item">
 								<td>${camionero.dni}</td>
 								<td>${camionero.nombre}</td>
 								<td>${camionero.apellido}
 								<td>
-									<div class="accordion-item">
-									<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acordeon${camionero.dni }" aria-expanded="false" aria-controls="flush-collapseOne">
+									
+									<button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#acordeon${camionero.dni }" aria-expanded="false" aria-controls="flush-collapseOne">
 									Boton
 									</button>
-									</h2>
+									
 									<div id="acordeon${camionero.dni }" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
 									<div class="accordion-body">
-									
-									</div>
+									${camionero.viajes }
 									</div>
 									</div>
 									
