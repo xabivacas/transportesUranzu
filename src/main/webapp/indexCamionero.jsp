@@ -89,7 +89,7 @@
 									
 									<div id="acordeon${camionero.dni }" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
 									<div class="accordion-body">
-									${camionero.viajes }
+									${camionero. }
 									</div>
 									</div>
 									

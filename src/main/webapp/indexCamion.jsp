@@ -24,7 +24,47 @@
 
 		<body>
 		
-			<%@include file="/partes/header.jsp" %>
+					<!-- Header -->
+		<header class="bg-light container-fluid">
+			
+			
+			<!-- Nav responsive -->
+			<div class="pequeno ">
+				
+				<!-- Hamburgesa -->
+				<button class="btn col-12" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">			
+						<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+				  	</svg>
+				</button>
+				
+				<!-- El offcanvas responsive -->
+				<div class="offcanvas  offcanvas-start bg-light" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+					<div class="offcanvas-header">
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body small">
+						<%@ include file="/partes/formularioCamion.jsp" %>
+						<%@ include file="/partes/navegadorResponsive.jsp" %>
+					</div>
+				</div>
+			</div>
+				
+			<!-- Logo -->
+			<div class="col-lg-3 col-6 ">
+				<img src="recursos/logo-uranzu-transportes.jpg" class="shadow" alt="...">
+			</div>
+			<div class="grande col-lg-7">
+				<%@ include file="/partes/navegador.jsp" %>
+			</div>
+			<!-- Cerrar sesion -->
+			<div class="col-lg-2 col-md-2 col-6 ">
+				<a href="Index">
+					<button type="button" class="btn btn-danger">Cerrar Sesion</button>
+				</a>
+			</div>
+	
+		</header>
 			
 			<!--Los datos y el aside para el insert-->
 
@@ -33,7 +73,6 @@
 				<aside class="shadow bg-light">
 					<%@ include file="/partes/formularioCamion.jsp" %>
 					<%@ include file="/partes/asignarViaje.jsp" %>
-					<%@ include file="/partes/navegador.jsp" %>
 				</aside>
 
 				<div class="datos m-4">
