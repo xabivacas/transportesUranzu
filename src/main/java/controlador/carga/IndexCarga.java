@@ -37,11 +37,12 @@ public class IndexCarga extends HttpServlet {
 		request.setAttribute("camiones", camiones);
 		request.setAttribute("camioneros", camioneros);
 		request.setAttribute("viajes", viajes);
-		
+		request.setAttribute("cargas", cargas);
+
 			
 		request.setAttribute("camioneros", camioneros);
 		
-		request.getRequestDispatcher("indexCamionero.jsp").forward(request,response);
+		request.getRequestDispatcher("indexCarga.jsp").forward(request,response);
 		
 	}
 

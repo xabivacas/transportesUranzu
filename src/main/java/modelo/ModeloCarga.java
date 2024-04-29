@@ -32,7 +32,7 @@ public class ModeloCarga extends Conector {
 		 
 		 public Carga getUno(int id) {
 			 Carga c = new Carga();
-			 String sql = "SELECT * FROM CAMIONEROS WHERE id=?";
+			 String sql = "SELECT * FROM CARGAS WHERE id=?";
 			 
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
@@ -90,7 +90,7 @@ public class ModeloCarga extends Conector {
 		 }
 		 
 		 public void update(Carga c) {
-			 String sql = "UPDATE CARGAS SET PESO=?, DIMENSIONES=?, VIAJE=?, TIPO=? WHERE DNI=?";
+			 String sql = "UPDATE CARGAS SET PESO=?, DIMENSIONES=?, VIAJE=?, TIPO=? WHERE ID=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				pst.setDouble(1, c.getPeso());

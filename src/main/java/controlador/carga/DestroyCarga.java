@@ -1,27 +1,25 @@
-package controlador.camion;
+package controlador.carga;
 
 import java.io.IOException;
-import java.util.*;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.*;
+import modelo.ModeloCarga;
 
 /**
- * Servlet implementation class IndexCamion
+ * Servlet implementation class Destroy
  */
-@WebServlet("/IndexCamion")
-public class IndexCamion extends HttpServlet {
+@WebServlet("/DestroyCarga")
+public class DestroyCarga extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexCamion() {
+    public DestroyCarga() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,14 +28,9 @@ public class IndexCamion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Camion> camiones = new ModeloCamion().getTodos();
-		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
-		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
-
-		request.setAttribute("camiones", camiones);
-		request.setAttribute("camioneros", camioneros);
-		request.setAttribute("viajes", viajes);
-		request.getRequestDispatcher("indexCamion.jsp").forward(request, response);
+		ModeloCarga cm = new ModeloCarga();
+		cm.delete(Integer.parseInt( request.getParameter("id")));
+		response.sendRedirect("IndexCarga");
 	}
 
 	/**
