@@ -46,6 +46,34 @@ public class ModeloViaje extends Conector {
 			}
 			 
 		 }
+		 public ArrayList<Viaje> getViajesCamionero(Camionero c){
+			 String sql = "CALL VIAJESDECAMIONERO(?)";
+			 ArrayList<Viaje> viajes = new ArrayList<>();
+			 try {
+				PreparedStatement pst = conexion.prepareStatement(sql);
+				pst.setString(1, c.getDni());
+				
+				ResultSet rs = pst.executeQuery();
+				
+				while(rs.next()) {
+					Viaje v = new Viaje();
+					
+					v.setId(rs.getInt("ID"));
+					v.setOrigen(rs.getString("ORIGEN"));
+					v.setDestino(rs.getString("DESTINO"));
+					v.setFecha(new java.util.Date(rs.getDate("FECHA").getTime()));
+					
+					viajes.add(v);
+				}
+				return viajes;
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+			 
+		 }
 		 
 		 public Viaje getUno(int id) {
 			 Viaje v = new Viaje();

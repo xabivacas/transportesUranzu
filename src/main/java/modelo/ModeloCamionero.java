@@ -54,6 +54,7 @@ public class ModeloCamionero extends Conector {
 			c.setDni(rs.getString("dni"));
 			c.setNombre(rs.getString("Nombre"));
 			c.setApellido(rs.getString("apellido"));
+			c.setViajes(new ModeloViaje().getViajesCamionero(c));
 		}
 		 
 		 public void insert(Camionero c) {
