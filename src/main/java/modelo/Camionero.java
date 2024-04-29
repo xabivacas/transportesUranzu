@@ -1,12 +1,21 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Camionero {
 
 	//Atributos
 	private String dni;
 	private String nombre;
 	private String apellido;
+	private ArrayList<Viaje> viajes;
 	
+	public ArrayList<Viaje> getViajes() {
+		return viajes;
+	}
+	public void setViajes(ArrayList<Viaje> viajes) {
+		this.viajes = viajes;
+	}
 	public String getDni() {
 		return dni;
 	}
