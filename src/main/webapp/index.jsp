@@ -22,7 +22,7 @@
           <div class="col-lg-2 col-md-2 col-6 " > 
             <ul class="nav nav-pills nav-fill inicioSesion">
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="IndexCamion">Iniciar Sesion</a>
+                <a class="nav-link " aria-current="page" data-bs-toggle="modal" data-bs-target="#login">Iniciar Sesion</a>
               </li>
             </ul>
           </div>
@@ -119,6 +119,43 @@
 						<label for="descripcion" class="form-label" ></label>
 						<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" palceholder="Inserte aqui una breve descripcion"></textarea>
 					</div>
+				  <button type="submit" class="btn btn-danger">Enviar</button>
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</form>
+				
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- Login -->
+		<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    	
+		    	<!-- Titulo del modal -->
+		    	<div class="modal-header">
+		        <h1 class="modal-title fs-5" id="exampleModalLabel">Pedir presupuesto</h1>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		        
+		      </div>
+		      <div class="modal-body">
+		      
+		        <form action="Login">
+		        
+		        	<!-- Nombre -->
+					<div class="mb-3">
+						<p>Inserte los datos y nuestro equipo contactara con usted en un plazo de 2 meses a 2 aï¿½os</p>
+						<label for="nombre" class="form-label">Nombre de usuario</label>
+						<input type="text" class="form-control" id="nombre" placeholder="Usuario123" name="nombre">
+					</div>
+					
+					<!-- Password -->
+					<div class="mb-3">
+						<label for="contrasenia" class="form-label">Contraseña</label>
+						<input type="password" class="form-control" id="contrasenia" name="password">
+					</div>
+
 				  <button type="submit" class="btn btn-danger">Enviar</button>
 				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 				</form>

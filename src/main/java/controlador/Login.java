@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.*;
+
 /**
  * Servlet implementation class Login
  */
@@ -26,8 +28,21 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		User user = new ModeloUsuario().getUser(request.getParameter("nombre"));
+		if (user.getContrasenia() != null) {
+			if(user.getContrasenia().equals(request.getParameter("password"))) {
+				if(user.getTipo().equalsIgnoreCase("Admin")){
+					response.sendRedirect("IndexCamionero");
+				}else {
+					response.sendRedirect("IndexCliente");
+				}
+			}else {
+				response.sendRedirect("Index");
+			}
+		}else {
+			response.sendRedirect("Index");
+		}
+		
 	}
 
 	/**

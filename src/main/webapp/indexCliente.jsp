@@ -72,8 +72,6 @@
 
 				<aside class="shadow bg-light">
 					<%@ include file="/partes/formularioCliente.jsp" %>
-					<%@ include file="/partes/asignarViaje.jsp" %>
-					<%@ include file="/partes/navegador.jsp" %>
 				</aside>
 
 				<div class="datos m-4">
@@ -116,7 +114,7 @@
 							</tr>
 
 						</c:forEach>
-
+						</table>
 				</div>
 
 				<!-- Modales -->
