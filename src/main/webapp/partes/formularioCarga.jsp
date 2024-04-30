@@ -3,11 +3,8 @@
      
      <p class="h4"> Insertar Carga</p>
      <hr>
-      <form action="StoreCamionero" method="post" class="bg-light">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">ID</label>
-              <input type="text" class="form-control" id="id" name="id" aria-describedby="dni">
-            </div>
+      <form action="StoreCarga" method="post" class="bg-light">
+            
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Peso</label>
               <input type="text" class="form-control" id="peso" name="peso">
@@ -17,9 +14,14 @@
                 <input type="text" class="form-control" id="dimensiones" name="dimensiones">
               </div>
                <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Viaje</label>
-                <input type="text" class="form-control" id="viaje" name="viaje">
-              </div>
+					<label>Viaje</label>
+					<select name="viaje" class="form-select">
+						<option value="0"> </option>
+							<c:forEach items="${viajes}" var="viaje">
+								<option value="${viaje.id }">${viaje.origen} --> ${viaje.destino}</option>
+							</c:forEach>
+					</select>
+				</div>
                <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Tipo</label>
                 <input type="text" class="form-control" id="tipo" name="tipo">

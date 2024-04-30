@@ -29,18 +29,16 @@ public class IndexCarga extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Camion> camiones = new ModeloCamion().getTodos();
-		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
+
 		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
 		ArrayList<Carga> cargas= new ModeloCarga().getTodos();
 		
-		request.setAttribute("camiones", camiones);
-		request.setAttribute("camioneros", camioneros);
+
 		request.setAttribute("viajes", viajes);
 		request.setAttribute("cargas", cargas);
 
 			
-		request.setAttribute("camioneros", camioneros);
+		
 		
 		request.getRequestDispatcher("indexCarga.jsp").forward(request,response);
 		

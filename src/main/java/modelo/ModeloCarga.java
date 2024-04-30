@@ -60,15 +60,14 @@ public class ModeloCarga extends Conector {
 		}
 		 
 		 public void insert(Carga c) {
-			 String sql = "INSERT INTO CARGA (ID,PESO,DIMENSIONES,VIAJE,TIPO) VALUES (?,?,?,?,?)";
+			 String sql = "INSERT INTO CARGAS (PESO,DIMENSIONES,VIAJE,TIPO) VALUES (?,?,?,?)";
 			 try {
 				
 				PreparedStatement pst = conexion.prepareStatement(sql);
-				pst.setInt(1, c.getId());
-				pst.setDouble(2, c.getPeso());
-				pst.setString(3, c.getDimensiones());
-				pst.setInt(4,c.getViaje().getId());
-				pst.setString(5,c.getTipo());
+				pst.setDouble(1, c.getPeso());
+				pst.setString(2, c.getDimensiones());
+				pst.setInt(3,c.getViaje().getId());
+				pst.setString(4,c.getTipo());
 				
 				pst.execute();
 			} catch (SQLException e) {
@@ -77,7 +76,7 @@ public class ModeloCarga extends Conector {
 			}
 		 }
 		 public void delete(int  id) {
-			 String sql = "DELETE FROM CARGA WHERE ID=?";
+			 String sql = "DELETE FROM CARGAS WHERE ID=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				pst.setInt(1, id);

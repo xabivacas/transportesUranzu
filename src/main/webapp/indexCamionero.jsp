@@ -18,7 +18,8 @@
 	<body>
 	
 		<!-- Header -->
-		<header class="bg-light">
+		<header class="bg-light container-fluid">
+			
 			
 			<!-- Nav responsive -->
 			<div class="pequeno ">
@@ -36,17 +37,19 @@
 						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
 					<div class="offcanvas-body small">
-						<%@ include file="/partes/formularioCamionero.jsp" %>
-						<%@ include file="/partes/navegador.jsp" %>
+						<%@ include file="/partes/formularioCamion.jsp" %>
+						<%@ include file="/partes/navegadorResponsive.jsp" %>
 					</div>
 				</div>
 			</div>
 				
 			<!-- Logo -->
-			<div class="col-lg-4  col-md-4 col-6 ">
+			<div class="col-lg-3 col-6 ">
 				<img src="recursos/logo-uranzu-transportes.jpg" class="shadow" alt="...">
 			</div>
-				
+			<div class="grande col-lg-7">
+				<%@ include file="/partes/navegador.jsp" %>
+			</div>
 			<!-- Cerrar sesion -->
 			<div class="col-lg-2 col-md-2 col-6 ">
 				<a href="Index">
@@ -89,7 +92,7 @@
 									
 									<div id="acordeon${camionero.dni }" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
 									<div class="accordion-body">
-									${camionero. }
+									
 									</div>
 									</div>
 									
