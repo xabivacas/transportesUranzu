@@ -46,6 +46,7 @@ public class ModeloViaje extends Conector {
 			}
 			 
 		 }
+		 
 		 public ArrayList<Viaje> getViajesCamionero(Camionero c){
 			 String sql = "CALL VIAJESDECAMIONERO(?)";
 			 ArrayList<Viaje> viajes = new ArrayList<>();
@@ -58,10 +59,7 @@ public class ModeloViaje extends Conector {
 				while(rs.next()) {
 					Viaje v = new Viaje();
 					
-					v.setId(rs.getInt("ID"));
-					v.setOrigen(rs.getString("ORIGEN"));
-					v.setDestino(rs.getString("DESTINO"));
-					v.setFecha(new java.util.Date(rs.getDate("FECHA").getTime()));
+					rellenarViaje(v,rs);
 					
 					viajes.add(v);
 				}
@@ -75,6 +73,27 @@ public class ModeloViaje extends Conector {
 			 
 		 }
 		 
+		 public ArrayList<Viaje> getViajesDisponibles() {
+		        
+			 ArrayList<Viaje> viajes = new ArrayList<>();
+
+		        try {
+		            Statement st = conexion.createStatement();
+		            ResultSet rs = st.executeQuery("SELECT * FROM VIAJES");
+		            while (rs.next()) {
+		            	Viaje viaje = new Viaje();
+		            	rellenarViaje(viaje, rs);
+						
+
+		            	viajes.add(viaje);
+		            }
+
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		            return null;
+		        }
+		        return viajes;
+		    }
 		 public Viaje getUno(int id) {
 			 Viaje v = new Viaje();
 			 String sql = "SELECT * FROM VIAJES WHERE id=?";
