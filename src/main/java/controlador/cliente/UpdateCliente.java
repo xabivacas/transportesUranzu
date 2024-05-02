@@ -31,12 +31,12 @@ public class UpdateCliente extends HttpServlet {
 		Cliente cl = new Cliente();
 		
 		cl.setCif(request.getParameter("cifMod"));
-		cl.setNombre(request.getParameter("nombraMod"));
-		cl.setDireccion(request.getParameter("modeloMod"));
+		cl.setNombre(request.getParameter("nombreMod"));
+		cl.setDireccion(request.getParameter("direccionMod"));
 		
 		new ModeloCliente().update(cl);
 		
-		response.sendRedirect("IndexCamion");
+		response.sendRedirect("IndexCliente");
 	}
 
 	/**

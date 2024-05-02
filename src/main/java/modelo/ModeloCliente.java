@@ -84,7 +84,7 @@ public class ModeloCliente extends Conector{
 	 }
 	 
 	 public void update(Cliente cl) {
-		 String sql = "UPDATE CAMIONEROS SET NOMBRE=?, APELLIDO=? WHERE CIF=?";
+		 String sql = "UPDATE CLIENTES SET NOMBRE=?, DIRECCION=? WHERE CIF=?";
 		 try {
 			PreparedStatement pst = conexion.prepareStatement(sql);
 			pst.setString(1, cl.getNombre());
