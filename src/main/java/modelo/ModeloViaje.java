@@ -76,10 +76,10 @@ public class ModeloViaje extends Conector {
 		 public ArrayList<Viaje> getViajesDisponibles() {
 		        
 			 ArrayList<Viaje> viajes = new ArrayList<>();
-
+			 String sql = ("CALL VIAJESDISPONIBLES()");
 		        try {
 		            Statement st = conexion.createStatement();
-		            ResultSet rs = st.executeQuery("SELECT * FROM VIAJES");
+		            ResultSet rs = st.executeQuery(sql);
 		            while (rs.next()) {
 		            	Viaje viaje = new Viaje();
 		            	rellenarViaje(viaje, rs);
