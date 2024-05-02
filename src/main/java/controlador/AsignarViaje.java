@@ -1,26 +1,24 @@
-package controlador.camionero;
+package controlador;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import modelo.*;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.*;
 
 /**
- * Servlet implementation class Index
+ * Servlet implementation class AsignarViaje
  */
-@WebServlet("/IndexCamionero")
-public class IndexCamionero extends HttpServlet {
+@WebServlet("/AsignarViaje")
+public class AsignarViaje extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexCamionero() {
+    public AsignarViaje() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +27,12 @@ public class IndexCamionero extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Camion> camiones = new ModeloCamion().getTodos();
-		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
-		ArrayList<Viaje> viajes = new ModeloViaje().getViajesDisponibles();
+		Viaje v = new ModeloViaje().getUno(Integer.parseInt(request.getParameter("viaje")));
+		Camionero camionero = new ModeloCamionero().getUno(request.getParameter("camionero"));
+		Camion camion = new ModeloCamion().getUno(request.getParameter("camion"));
 		
-		request.setAttribute("camiones", camiones);
-		request.setAttribute("camioneros", camioneros);
-		request.setAttribute("viajes", viajes);
-		request.setAttribute("direccion", "IndexCamionero");
-			
-		request.setAttribute("camioneros", camioneros);
-		
-		request.getRequestDispatcher("indexCamionero.jsp").forward(request,response);
-		
+		new ModeloViaje().asignarViaje(v, camion, camionero);
+		response.sendRedirect(request.getParameter("direccion"));
 	}
 
 	/**

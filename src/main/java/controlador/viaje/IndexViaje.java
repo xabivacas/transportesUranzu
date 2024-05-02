@@ -31,7 +31,7 @@ public class IndexViaje extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ModeloViaje mv = new ModeloViaje();
 		ArrayList<Viaje> viajes = mv.getTodos();
-		
+		request.setAttribute("direccion", "IndexViaje");
 			
 		request.setAttribute("viajes", viajes);
 		
