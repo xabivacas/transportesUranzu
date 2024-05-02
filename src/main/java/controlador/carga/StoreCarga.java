@@ -33,11 +33,10 @@ public class StoreCarga extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		Carga c = new Carga();
-		c.setId(Integer.parseInt(request.getParameter("idMod")));
-		c.setPeso(Double.parseDouble(request.getParameter("pesoMod")));
-		c.setDimensiones(request.getParameter("dimensionesMod"));
-		c.setViaje(new ModeloViaje().getUno(Integer.parseInt(request.getParameter("viajeMod"))));
-		c.setTipo(request.getParameter("tipoMod"));
+		c.setPeso(Double.parseDouble(request.getParameter("peso")));
+		c.setDimensiones(request.getParameter("dimensiones"));
+		c.setViaje(new ModeloViaje().getUno(Integer.parseInt(request.getParameter("viaje"))));
+		c.setTipo(request.getParameter("tipo"));
 		
 		ModeloCarga mc = new ModeloCarga();
 		mc.insert(c);

@@ -16,7 +16,46 @@
 </head>
 <body>
 	<!-- Header -->
-	<%@include file="/partes/header.jsp" %>
+	<header class="bg-light container-fluid">
+			
+			
+			<!-- Nav responsive -->
+			<div class="pequeno ">
+				
+				<!-- Hamburgesa -->
+				<button class="btn col-12" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">			
+						<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+				  	</svg>
+				</button>
+				
+				<!-- El offcanvas responsive -->
+				<div class="offcanvas  offcanvas-start bg-light" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+					<div class="offcanvas-header">
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body small">
+						<%@ include file="/partes/formularioCamion.jsp" %>
+						<%@ include file="/partes/navegadorResponsive.jsp" %>
+					</div>
+				</div>
+			</div>
+				
+			<!-- Logo -->
+			<div class="col-lg-3 col-6 ">
+				<img src="recursos/logo-uranzu-transportes.jpg" class="shadow" alt="...">
+			</div>
+			<div class="grande col-lg-7">
+				<%@ include file="/partes/navegador.jsp" %>
+			</div>
+			<!-- Cerrar sesion -->
+			<div class="col-lg-2 col-md-2 col-6 ">
+				<a href="Index">
+					<button type="button" class="btn btn-danger">Cerrar Sesion</button>
+				</a>
+			</div>
+	
+		</header>
 			
 	<!--Los datos y el aside para el insert-->
 
@@ -53,7 +92,7 @@
 	                                   <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
 	                                  </svg>
 								</button>
-							<a href="DestroyCamionero?dni=${carga.id}"> 
+							<a href="DestroyCarga?id=${carga.id}"> 
 							<button type="button" class="btn btn-danger">
 							<svg
 							
@@ -66,9 +105,10 @@
 							</a></td>
 						</tr>
 					</c:forEach>
+			</table>
 			</div>
 					<!-- Modales -->
-					<c:forEach items="${carga}" var="carga">
+					<c:forEach items="${cargas}" var="carga">
 					<div class="modal fade" id="modal${carga.id }" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						  <div class="modal-dialog">
 						    <div class="modal-content">
@@ -78,7 +118,7 @@
 						      </div>
 						      
 						      <div class="modal-body">
-						        <form action="UpdateCamionero" method="post">
+						        <form action="UpdateCarga" method="post">
 						        
 						        	<input type="hidden" value="${carga.id }" name="idMod" aria-describedby="idMod">
 								  <div class="mb-3">
@@ -92,11 +132,15 @@
 								    <input type="text" class="form-control" id="dimensionesMod" name="dimensionesMod" value="${carga.dimensiones}"
 												placeholder="${camionero.apellido}">
 								  </div>
-								  <div class="mb-3">
-								    <label for="exampleInputPassword1" class="form-label">Viaje</label>
-								    <input type="text" class="form-control" id="viajeMod" name="viajeMod" value="${carga.viaje}"
-												placeholder="${camionero.viaje}">
-								  </div>
+								    <div class="mb-3">
+										<label>Viaje</label>
+										<select name="viajeMod" class="form-select">
+											<option value="0"> </option>
+												<c:forEach items="${viajes}" var="viaje">
+													<option value="${viaje.id }">${viaje.origen} --> ${viaje.destino}</option>
+												</c:forEach>
+										</select>
+									</div>
 								  <div class="mb-3">
 								    <label for="exampleInputPassword1" class="form-label">Tipo</label>
 								    <input type="text" class="form-control" id="tipoMod" name="tipoMod" value="${carga.tipo}"
@@ -112,7 +156,7 @@
 						  </div>
 					</div>
 					</c:forEach>
-				</table>
+				
 	</main>
 
 
