@@ -85,33 +85,17 @@
 							<th></th>
 						</tr>
 					</thead>
-					<tbody class="accordion accordion-flush" id="accordion">
-						<c:forEach items="${camioneros}" var="camionero">
-							<tr class="accordion-item">
+						<tbody>
+						<c:forEach items="${camioneros}"  var="camionero">
+							<tr>
 								<td>${camionero.dni}</td>
 								<td>${camionero.nombre}</td>
 								<td>${camionero.apellido}</td>
 								<td>
-									<button class="btn type=" button" data-bs-toggle="collapse"
-										data-bs-target="#acordeon${camionero.dni }"
-										aria-expanded="false" aria-controls="flush-collapseOne">
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-											fill="currentColor" class="bi bi-chevron-down"
-											viewBox="0 0 16 16">
-											<path fill-rule="evenodd"
-												d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
-										</svg>
-									</button>
-								</td>
-								<td>
-									<button type="button" class="btn btn-danger"
-										data-bs-toggle="modal"
-										data-bs-target="#modal${camionero.dni }">
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-											fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-		                                   <path
-												d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
-		                                  </svg>
+									<button type="button" class="btn btn-danger" data-bs-toggle="modal"	data-bs-target="#modal${camionero.dni }">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+		                                   <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+		                      			</svg>
 									</button> <a href="DestroyCamionero?dni=${camionero.dni}">
 										<button type="button" class="btn btn-danger">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -123,9 +107,7 @@
 										</button>
 								</a>
 								</td>
-							
 							</tr>
-							
 						</c:forEach>
 					</tbody>
 				</table>
@@ -175,6 +157,7 @@
 		</c:forEach>
 
 <!-- enaut inicio -->
+<!-- 
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -184,11 +167,11 @@
 					<div class="accordion-item">
 							<h2 class="accordion-header">
 								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseThree"
+									data-bs-toggle="collapse" data-bs-target="#collapse${camionero.dni }"
 									aria-expanded="false" aria-controls="collapseThree">
 									${camionero.nombre}</button>
 							</h2>
-							<div id="collapseThree" class="accordion-collapse collapse"
+							<div id="collapse${camionero.dni }" class="accordion-collapse collapse"
 								data-bs-parent="#accordionExample">
 								<div class="accordion-body">
 									<c:forEach items="${camionero.viajes}" var="viaje">
@@ -198,53 +181,15 @@
 							</div>
 						</div>
 					</c:forEach>
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseThree"
-									aria-expanded="false" aria-controls="collapseThree">
-									Accordion Item #3</button>
-							</h2>
-							<div id="collapseThree" class="accordion-collapse collapse"
-								data-bs-parent="#accordionExample">
-								<div class="accordion-body">
-									<strong>This is the third item's accordion body.</strong> It is
-									hidden by default, until the collapse plugin adds the
-									appropriate classes that we use to style each element. These
-									classes control the overall appearance, as well as the showing
-									and hiding via CSS transitions. You can modify any of this with
-									custom CSS or overriding our default variables. It's also worth
-									noting that just about any HTML can go within the
-									<code>.accordion-body</code>
-									, though the transition does limit overflow.
-								</div>
-							</div>
-						</div>
+					
 					</div>
 				</div>
 			</div>
 		</div>
-		
+		-->
 		<!-- enaut fin -->
 		
-	<div id="collapse${camionero.dni }" class="accordion-collapse collapse"
-								data-bs-parent="#accordion">
-								<table>
-									<thead>
-										<tr>
-											<th scope="col">Origen</th>
-											<th scope="col">Destino</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach items="${camionero.viajes}" var="viaje">
-											<td>${viaje.origen}	</td>
-											<td>${viaje.destino}</td>
-										</c:forEach>
-									</tbody>
-								</table>
-								
-	</div>
+	
 	</main>
 
 
