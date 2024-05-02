@@ -128,15 +128,15 @@
 									  
 									  <div class="mb-3">
 									    <label for="Destino" class="form-label">Destino</label>
-									    <input type="text" class="form-control" id="destinoMod" name="destinoMod">
+									    <input type="text" class="form-control" id="destinoMod" name="destinoMod" value="${viaje.destino}" placeholder="${viaje.destino}">
 									  </div>
 									  <div class="mb-3">
 									    <label for="Fecha" class="form-label">Fecha</label>
-									    <input type="text" class="form-control" id="fechaMod" name="fechaMod">
+									    <input type="date" class="form-control" id="fechaMod" name="fechaMod" value="${viaje.fecha}" placeholder="${viaje.fecha}">
 									  </div>
 									  
 	
-									  <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal">Guardar</button>
+									  <button type="submit" class="btn btn-danger"  data-bs-dismiss="modal">Guardar</button>
 									  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 									</form>
 									

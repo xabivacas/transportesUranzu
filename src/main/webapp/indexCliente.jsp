@@ -171,7 +171,7 @@
 
 
 
-										<button type="submit" class="btn btn-primary"
+										<button type="submit" class="btn btn-danger"
 											data-bs-dismiss="modal">Guardar</button>
 
 										<button type="button" class="btn btn-secondary"
