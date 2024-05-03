@@ -2,6 +2,7 @@ package modelo;
 
 public class Camion {
 
+	
 	//Atributos
 	private String matricula;
 	private String marca;

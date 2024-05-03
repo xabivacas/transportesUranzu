@@ -63,7 +63,6 @@
 
 		<aside class="shadow bg-light">
 			<%@ include file="/partes/formularioCarga.jsp" %>
-			<%@ include file="/partes/navegador.jsp" %>
 		</aside>
 		
       <div class="datos m-4">
@@ -83,7 +82,7 @@
 							<td>${carga.id}</td>
 							<td>${carga.peso}</td>
 							<td>${carga.dimensiones}</td>
-							<td>${carga.viaje}</td>
+							<td>${carga.viaje.origen} --> ${carga.viaje.destino}</td>
 							<td>${carga.tipo}</td>
 							<td>
 								<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal${carga.id }">
