@@ -32,8 +32,9 @@ public class IndexCamion extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Camion> camiones = new ModeloCamion().getTodos();
 		ArrayList<Camionero> camioneros = new ModeloCamionero().getTodos();
-		ArrayList<Viaje> viajes = new ModeloViaje().getTodos();
-
+		ArrayList<Viaje> viajes = new ModeloViaje().getViajesDisponibles();
+		request.setAttribute("direccion", "IndexCamion");
+		
 		request.setAttribute("camiones", camiones);
 		request.setAttribute("camioneros", camioneros);
 		request.setAttribute("viajes", viajes);
