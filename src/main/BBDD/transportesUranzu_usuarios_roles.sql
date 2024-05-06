@@ -1,7 +1,7 @@
 /*
-BBDD: Crear dos Roles de BBDD. Uno especifico DBA (appAdmin) y el otro para los usuarios Clientes de la aplicaciÛn (appUser). 
-Cuando en la aplicaciÛn se logee el administrador, lo hara con el usuario appAdmin y con appUser para los dem·s casos. 
-appUser, solamente podr· ejecutar operaciones de DML y appAdmin crear· los usuarios que se logeen con appUser.
+BBDD: Crear dos Roles de BBDD. Uno especifico DBA (appAdmin) y el otro para los usuarios Clientes de la aplicaci√≥n (appUser). 
+Cuando en la aplicaci√≥n se logee el administrador, lo hara con el usuario appAdmin y con appUser para los dem√°s casos. 
+appUser, solamente podr√° ejecutar operaciones de DML y appAdmin crear√° los usuarios que se logeen con appUser.
 */
 
 /*DROPS
@@ -11,8 +11,8 @@ DROP USER ADMIN;
 DROP USER CLIENTE;
 */
 
-CREATE ROLE appAdmin NOT IDENTIFIED;
-CREATE ROLE appUser NOT IDENTIFIED;
+CREATE ROLE appAdmin;
+CREATE ROLE appUser ;
 
 GRANT SELECT,INSERT,UPDATE,DELETE ON CAMIONEROS TO appUser;
 GRANT SELECT,INSERT,UPDATE,DELETE ON CAMIONES TO appUser;
@@ -26,8 +26,8 @@ GRANT CREATE SESSION TO appUser;
 GRANT CREATE USER,ALTER USER,DROP USER TO appAdmin;
 GRANT CREATE SESSION  TO appAdmin;
 
-CREATE USER ADMIN IDENTIFIED BY ADMIN DEFAULT TABLESPACE transportesUranzu;
-CREATE USER CLIENTE IDENTIFIED BY CLIENTE DEFAULT TABLESPACE transportesUranzu;
+CREATE USER ADMIN IDENTIFIED BY 'ADMIN' DEFAULT TABLESPACE transportesUranzu;
+CREATE USER CLIENTE IDENTIFIED BY 'CLIENTE' DEFAULT TABLESPACE transportesUranzu;
 
-GRANT appAdmin to ADMIN;
+GRANT appAdmin TO ADMIN;
 GRANT appUser TO CLIENTE;

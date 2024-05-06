@@ -5,7 +5,7 @@
  <hr>
  <form action="AsignarViaje" method="POST" class="bg-light">
 	<div class="mb-3">
-		<input type="hidden" value="${direccion }" name="direccion">
+		<input type="hidden" value="${direccion}" name="direccion">
 		<label>Viaje</label>
 		<select name="viaje" class="form-select">
 			<option value="0"> </option>
