@@ -76,7 +76,7 @@ public class ModeloViaje extends Conector {
 		 public ArrayList<Viaje> getViajesDisponibles() {
 		        
 			 ArrayList<Viaje> viajes = new ArrayList<>();
-			 String sql = ("CALL VIAJESDISPONIBLES()");
+			 String sql = ("SELECT * FROM VIAJES");
 		        try {
 		            Statement st = conexion.createStatement();
 		            ResultSet rs = st.executeQuery(sql);
