@@ -176,7 +176,7 @@ pageEncoding="UTF-8"%>>
       </div>     
         <div class="col-12 col-lg-4">
           <h4>HORARIOS</h4>
-          <p>Ofrecemos el servicio las 24 horas del dia y los 365 dias del a�o!</p>
+          <p>Ofrecemos el servicio las 24 horas del dia y los 365 dias del año!</p>
         </div>
         </div>
       </div>
