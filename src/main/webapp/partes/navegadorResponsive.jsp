@@ -7,5 +7,9 @@
 		  <a href="IndexCamion" class="list-group-item list-group-item-action list-group-item-danger">Camiones</a>
 		  <a href="IndexViaje" class="list-group-item list-group-item-action list-group-item-danger"  aria-current="true">Viajes</a>
 		  <a href="IndexCliente" class="list-group-item list-group-item-action list-group-item-danger">Clientes</a>
+<<<<<<< HEAD
 		  <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Carga</a>
+=======
+		  <a class="list-group-item list-group-item-action list-group-item-danger" href="IndexCarga">Cargas</a>
+>>>>>>> branch 'master' of https://github.com/xabivacas/transportesUranzu.git
 		</div>
