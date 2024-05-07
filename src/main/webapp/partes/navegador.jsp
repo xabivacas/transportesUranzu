@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-	<div class="container-fluid">
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+	<div class="container-fluid text-center">
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
