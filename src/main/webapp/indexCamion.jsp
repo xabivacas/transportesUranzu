@@ -29,7 +29,7 @@
 			
 			
 			<!-- Nav responsive -->
-			<div class="pequeno ">
+			<div class="pequeno">
 				
 				<!-- Hamburgesa -->
 				<button class="btn col-12" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
