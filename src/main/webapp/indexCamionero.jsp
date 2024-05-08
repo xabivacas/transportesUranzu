@@ -87,10 +87,10 @@
 									<table class="table">
 										<!-- Datos del camionero -->
 										<tr>
-											<td scope="col">${camionero.dni}</td>
-											<td scope="col">${camionero.nombre}</td>
-											<td scope="col">${camionero.apellido}</td>
-											<td scope="col">
+											<td  class="col-lg-3" scope="col">${camionero.dni}</td>
+											<td  class="col-lg-3" scope="col">${camionero.nombre}</td>
+											<td  class="col-lg-3" scope="col">${camionero.apellido}</td>
+											<td  class="col-lg-3" scope="col">
 												
 												<!--Boton modal-->
 												<button type="button" class="btn btn-danger" data-bs-toggle="modal"	data-bs-target="#modal${camionero.dni }">
@@ -109,12 +109,13 @@
 												</a>
 
 												<!--Boton para ver viajes-->
-												<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${camionero.dni }" aria-expanded="false" aria-controls="collapseThree">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"	fill="currentColor" class="bi bi-chevron-down"	viewBox="0 0 16 16">
-														<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
-													</svg>
-												</button>
-
+												<c:if test="${camionero.viajes.size()>0}">
+													<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${camionero.dni }" aria-expanded="false" aria-controls="collapseThree">
+														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"	fill="currentColor" class="bi bi-chevron-down"	viewBox="0 0 16 16">
+															<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+														</svg>
+													</button>
+											</c:if>
 											</td>
 										</tr>
 									</table>
@@ -135,11 +136,11 @@
 												<tbody>
 													<c:forEach items="${camionero.viajes}" var="viaje">
 														<tr>
-															<td>${viaje.origen}</td>
+															<td  class="col-lg-3">${viaje.origen}</td>
 
-															<td>${viaje.destino}</td>
+															<td  class="col-lg-3">${viaje.destino}</td>
 
-															<td>${viaje.fecha}</td>
+															<td  class="col-lg-3">${viaje.fecha}</td>
 														</tr>
 													</c:forEach>
 												</tbody>

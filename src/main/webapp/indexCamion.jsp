@@ -129,7 +129,7 @@
 
 							<div class="modal-content">
 
-								<div class="modal-header">
+								<div class="modal-header ">
 
 									<h1 class="modal-title fs-5" id="label${camion.matricula }">Modificacion</h1>
 
