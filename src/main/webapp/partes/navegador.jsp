@@ -15,10 +15,10 @@
 					<a class="nav-link" href="IndexViaje">Viajes</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="IndexCliente">Clientes</a>
+					<a class="nav-link active" href="IndexCliente">Clientes</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link" href="IndexCarga">Cargas</a>
+				<a class="nav-link active" href="IndexCarga">Cargas</a>
 				</li>
 			</ul>
 		</div>
