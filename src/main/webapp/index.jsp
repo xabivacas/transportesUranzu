@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>>
+pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,7 +10,7 @@ pageEncoding="UTF-8"%>>
 	    <link rel="stylesheet" href="landingPageProyecto.css">
   	</head>
 	  <body>
-	
+
 	    <!--Nav-->
 	    <header>    
 	    	<!-- Logo -->
@@ -62,7 +62,7 @@ pageEncoding="UTF-8"%>>
 	                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
 	              </svg>
 	              <h4>Servicio express</h4>
-	              <p>Ofrecemos un servicio de transporte Express de envio urgentes o exclusivos, con vehiculos de acuerdo al tipo, volumen y peso de mercancia a trasladar con dos ch�feres a nivel nacional y Europeo.</p>
+	              <p>Ofrecemos un servicio de transporte Express de envio urgentes o exclusivos, con vehiculos de acuerdo al tipo, volumen y peso de mercancia a trasladar con dos chóferes a nivel nacional y Europeo.</p>
 	            </div>
 	            <div class="col-lg-3 col-md-12 mt-5">
 	              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">

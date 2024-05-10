@@ -11,10 +11,11 @@ public class ModeloCamionero extends Conector {
 		 public ArrayList<Camionero> getTodos() {
 		        
 			 ArrayList<Camionero> camioneros = new ArrayList<>();
-
-		        try {
-		            Statement st = conexion.createStatement();
-		            ResultSet rs = st.executeQuery("SELECT * FROM CAMIONEROS");
+				
+				
+				try {		
+					PreparedStatement pst =conexion.prepareStatement("SELECT * FROM CAMIONEROS");
+					ResultSet rs = pst.executeQuery();
 		            while (rs.next()) {
 		            	Camionero camionero = new Camionero();
 		            	rellenarCamionero(camionero, rs);

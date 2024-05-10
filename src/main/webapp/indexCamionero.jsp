@@ -73,9 +73,10 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">DNI</th>
-									<th scope="col">Nombre</th>
-									<th scope="col">Apellido</th>
+									<th class="col-lg-3" scope="col">DNI</th>
+									<th class="col-lg-3" scope="col">Nombre</th>
+									<th class="col-lg-3" scope="col">Apellido</th>
+									<th class="offcanvas-lg-3"></td>
 								</tr>
 							</thead>
 						</table>
@@ -90,7 +91,7 @@
 											<td  class="col-lg-3" scope="col">${camionero.dni}</td>
 											<td  class="col-lg-3" scope="col">${camionero.nombre}</td>
 											<td  class="col-lg-3" scope="col">${camionero.apellido}</td>
-											<td  class="col-lg-3" scope="col">
+											<td  class=" col-lg-3 " scope="col">
 												
 												<!--Boton modal-->
 												<button type="button" class="btn btn-danger" data-bs-toggle="modal"	data-bs-target="#modal${camionero.dni }">
