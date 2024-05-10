@@ -29,7 +29,7 @@ public class DestroyViaje extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ModeloViaje vm = new ModeloViaje();
-		vm.delete(request.getParameter("id"));
+		vm.delete(Integer.parseInt(request.getParameter("id")));
 		response.sendRedirect("IndexViaje");
 	}
 

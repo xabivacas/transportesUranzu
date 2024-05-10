@@ -119,11 +119,29 @@ public class ModeloViaje extends Conector {
 			}
 			 return v;
 		 }
-		 
+		 public Viaje getUno(int id) {
+			 Viaje v = new Viaje();
+			 String sql = "SELECT * FROM VIAJES WHERE id=";
+			 
+			 try {
+				PreparedStatement pst = conexion.prepareStatement(sql);
+				pst.setInt(1, id);
+				
+				ResultSet rs = pst.executeQuery();
+				
+				rs.next();
+				rellenarViaje(v, rs);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return v;
+		 }
 		private void rellenarViaje(Viaje v, ResultSet rs) throws SQLException {
+			v.setId(rs.getInt("id"));
 			v.setOrigen(rs.getString("origen"));
 			v.setDestino(rs.getString("destino"));
-			v.setFecha(rs.getDate("fecha"));
 
 		}
 		 
@@ -145,13 +163,11 @@ public class ModeloViaje extends Conector {
 				e.printStackTrace();
 			}
 		 }
-		 public void delete(Viaje viaje) {
-			 String sql = "DELETE FROM VIAJES  WHERE origen=? AND destino=? and fecha=?";
+		 public void delete(int id) {
+			 String sql = "DELETE FROM VIAJES  WHERE id=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
-				pst.setString(1,viaje.getOrigen());
-				pst.setString(2,viaje.getDestino());
-				pst.setDate(3,new java.sql.Date(viaje.getFecha().getTime()));
+				pst.setInt(1,id);
 				
 				pst.execute();
 			} catch (SQLException e) {
@@ -159,9 +175,9 @@ public class ModeloViaje extends Conector {
 				e.printStackTrace();
 			}
 		 }
-		 /*
+		 
 		 public void update(Viaje v) {
-			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=?, FECHA=?  WHERE  WHERE origen=? AND destino=? and fecha=?";
+			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=?, FECHA=?  WHERE id=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				java.util.Date fecha = v.getFecha();
@@ -184,5 +200,5 @@ public class ModeloViaje extends Conector {
 			}
 			
 		 }
-		 */ 
+		 
 	}
