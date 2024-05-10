@@ -26,6 +26,10 @@ h3{
     margin-left: 4%;
     margin-right: 4%;
 }
+a{
+	text-decoration:none;
+	
+}
 main{
     display: grid;
     grid-template-columns: 1fr 4fr;

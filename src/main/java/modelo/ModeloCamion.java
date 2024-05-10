@@ -9,11 +9,13 @@ import java.util.ArrayList;
 public class ModeloCamion extends Conector{
 
 	public ArrayList<Camion> getTodos(){
-		ArrayList<Camion> camiones = new ArrayList<>();
-		String sql = "SELECT * FROM CAMIONES";
+	ArrayList<Camion> camiones = new ArrayList<>();
 		
-		try {
-			ResultSet rs = conexion.createStatement().executeQuery(sql);
+		
+		try {		
+			PreparedStatement pst =conexion.prepareStatement("SELECT * FROM CAMIONES");
+			
+			ResultSet rs = pst.executeQuery();
 			
 			while(rs.next()) {
 				Camion c = new Camion();
