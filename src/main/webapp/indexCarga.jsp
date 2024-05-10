@@ -70,19 +70,16 @@
 		<table class="table">
 					<thead>
 						<tr>
-							<th scope="col">Id</th>
 							<th scope="col">Peso</th>
 							<th scope="col">Dimensiones</th>
-							<th scope="col">Viaje</th>
 							<th scope="col">Tipo</th>
+							<th></th>
 						</tr>
 					</thead>
 					<c:forEach items="${cargas}" var="carga" >
 						<tr>
-							<td>${carga.id}</td>
 							<td>${carga.peso}</td>
 							<td>${carga.dimensiones}</td>
-							<td>${carga.viaje.origen} --> ${carga.viaje.destino}</td>
 							<td>${carga.tipo}</td>
 							<td>
 								<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal${carga.id }">

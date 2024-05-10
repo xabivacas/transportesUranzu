@@ -34,5 +34,7 @@
 			</c:forEach>
 		</select>
 	</div>
+	
+	
 	<input type="submit" value="Guardar" name="Guardar" class="btn btn-danger">
 </form>

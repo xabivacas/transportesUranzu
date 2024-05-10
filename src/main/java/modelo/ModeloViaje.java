@@ -121,7 +121,7 @@ public class ModeloViaje extends Conector {
 		 }
 		 public Viaje getUno(int id) {
 			 Viaje v = new Viaje();
-			 String sql = "SELECT * FROM VIAJES WHERE id=";
+			 String sql = "SELECT * FROM VIAJES WHERE id=?";
 			 
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
@@ -146,16 +146,14 @@ public class ModeloViaje extends Conector {
 		}
 		 
 		 public void insert(Viaje v) {
-			 String sql = "INSERT INTO VIAJES (ORIGEN,DESTINO,FECHA) VALUES (?,?,?)";
+			 String sql = "INSERT INTO VIAJES (ORIGEN,DESTINO) VALUES (?,?)";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				java.util.Date fecha = v.getFecha();
-				java.sql.Date sqlDate = new java.sql.Date(fecha.getTime());
 				
 				
 				pst.setString(1, v.getOrigen());
 				pst.setString(2, v.getDestino());
-				pst.setDate(3,  sqlDate);
 				
 				pst.execute();
 			} catch (SQLException e) {
