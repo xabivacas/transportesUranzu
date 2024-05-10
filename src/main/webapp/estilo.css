@@ -1,5 +1,5 @@
 header{
-    width: 100%;
+    width: 110%;
     height: 10%;
     padding: 10px;
     display: flex;
@@ -41,12 +41,11 @@ aside{
     background-color: rgb(255, 255, 255);
     grid-column: 1/2;
     padding: 15% 2% 0% 2%;
-    max-height: 90vh;
+    height:90vh;
     color: red;
-    overflow-x: scroll;
 }
 .datos{
-   max-height: 90vh;
+   max-height: 90%;
    overflow-x: scroll;
    grid-column: 2/5;
    margin: 1%;
@@ -61,6 +60,9 @@ aside{
     align-items: center;
     margin-left: 0%;
     color: red;
+}
+body{
+	overflow:hidden;
 }
 
 

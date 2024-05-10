@@ -30,7 +30,7 @@
 		<select name="camion" class="form-select">
 			<option value="0"></option>
 			<c:forEach items="${camiones}" var="camion">
-				<option value="${camion.matricula }">${camion.marca} ${camion.modelo }</option>
+				<option value="${camion.matricula }">${camion.matricula} </option>
 			</c:forEach>
 		</select>
 	</div>

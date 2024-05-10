@@ -14,7 +14,7 @@ public class ModeloCamionero extends Conector {
 				
 				
 				try {		
-					PreparedStatement pst =conexion.prepareStatement("SELECT * FROM CAMKIONEROS");
+					PreparedStatement pst =conexion.prepareStatement("SELECT * FROM CAMIONEROS");
 					ResultSet rs = pst.executeQuery();
 		            while (rs.next()) {
 		            	Camionero camionero = new Camionero();

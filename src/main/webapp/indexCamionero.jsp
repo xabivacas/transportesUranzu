@@ -73,9 +73,10 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">DNI</th>
-									<th scope="col">Nombre</th>
-									<th scope="col">Apellido</th>
+									<th class="col-lg-3" scope="col">DNI</th>
+									<th class="col-lg-3" scope="col">Nombre</th>
+									<th class="col-lg-3" scope="col">Apellido</th>
+									<th class="offcanvas-lg-3"></td>
 								</tr>
 							</thead>
 						</table>

@@ -66,7 +66,7 @@
 					
 			</aside>
 			
-	      <div class="datos">
+	      <div class="datos container-fluid">
 			<table class="table">
 						<thead>
 							<tr>

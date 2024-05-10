@@ -65,7 +65,7 @@
 			<%@ include file="/partes/formularioCarga.jsp" %>
 		</aside>
 		
-      <div class="datos m-4">
+      <div class="datos m-4 container-fluid">
       
 		<table class="table">
 					<thead>

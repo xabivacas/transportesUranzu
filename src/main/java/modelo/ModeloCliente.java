@@ -9,9 +9,12 @@ public class ModeloCliente extends Conector{
 
 	public ArrayList<Cliente> getTodos(){
 		ArrayList<Cliente> clientes = new ArrayList<>();
-		String sql = "SELECT * FROM CLIENTES";
-		try {
-			ResultSet rs = conexion.createStatement().executeQuery(sql);
+		
+		
+		try {		
+			PreparedStatement pst =conexion.prepareStatement("SELECT * FROM CLIENTES");
+			
+			ResultSet rs = pst.executeQuery();
 			
 			while(rs.next()) {
 				Cliente c = new Cliente();

@@ -99,3 +99,6 @@ footer{
     cursor: pointer;
     color: white;
 }
+body{
+	overflow-x:hidden;
+}
