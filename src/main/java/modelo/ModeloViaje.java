@@ -31,13 +31,15 @@ public class ModeloViaje extends Conector {
 		        return viajes;
 		    }
 		 public void asignarViaje(Viaje viaje,Camion camion ,Camionero camionero) {
-			 String sql = "INSERT INTO VIAJE_CAMIONES_CAMIONEROS (CAMIONERO,MATRICULA,VIAJE) VALUES (?,?,?)";
+			 String sql = "INSERT INTO VIAJE_CAMIONES_CAMIONEROS (CAMIONERO,MATRICULA,DESTINO,ORIGEN, FECHA) VALUES (?,?,?,?,?)";
 			 
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				pst.setString(1, camionero.getDni());
 				pst.setString(2, camion.getMatricula());
-				pst.setInt(3, viaje.getId());
+				pst.setString(3, viaje.getDestino());
+				pst.setString(4, viaje.getOrigen());
+				pst.setDate(5, new java.sql.Date(viaje.getFecha().getTime()));
 				
 				pst.execute();
 			} catch (SQLException e) {
@@ -96,13 +98,15 @@ public class ModeloViaje extends Conector {
 		        }
 		        return viajes;
 		    }
-		 public Viaje getUno(int id) {
+		 public Viaje getUno(Viaje viaje) {
 			 Viaje v = new Viaje();
-			 String sql = "SELECT * FROM VIAJES WHERE id=?";
+			 String sql = "SELECT * FROM VIAJES WHERE origen=? AND destino=? and fecha=?";
 			 
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
-				pst.setInt(1,id);
+				pst.setString(1,viaje.getOrigen());
+				pst.setString(2,viaje.getDestino());
+				pst.setDate(3,new java.sql.Date(viaje.getFecha().getTime()));
 				
 				ResultSet rs = pst.executeQuery();
 				
@@ -117,7 +121,6 @@ public class ModeloViaje extends Conector {
 		 }
 		 
 		private void rellenarViaje(Viaje v, ResultSet rs) throws SQLException {
-			v.setId(rs.getInt("id"));
 			v.setOrigen(rs.getString("origen"));
 			v.setDestino(rs.getString("destino"));
 			v.setFecha(rs.getDate("fecha"));
@@ -142,11 +145,13 @@ public class ModeloViaje extends Conector {
 				e.printStackTrace();
 			}
 		 }
-		 public void delete(String id) {
-			 String sql = "DELETE FROM VIAJES WHERE ID=?";
+		 public void delete(Viaje viaje) {
+			 String sql = "DELETE FROM VIAJES  WHERE origen=? AND destino=? and fecha=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
-				pst.setString(1, id);
+				pst.setString(1,viaje.getOrigen());
+				pst.setString(2,viaje.getDestino());
+				pst.setDate(3,new java.sql.Date(viaje.getFecha().getTime()));
 				
 				pst.execute();
 			} catch (SQLException e) {
@@ -154,9 +159,9 @@ public class ModeloViaje extends Conector {
 				e.printStackTrace();
 			}
 		 }
-		 
+		 /*
 		 public void update(Viaje v) {
-			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=?, FECHA=?  WHERE ID=?";
+			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=?, FECHA=?  WHERE  WHERE origen=? AND destino=? and fecha=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				java.util.Date fecha = v.getFecha();
@@ -177,6 +182,7 @@ public class ModeloViaje extends Conector {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			 
+			
 		 }
+		 */ 
 	}
