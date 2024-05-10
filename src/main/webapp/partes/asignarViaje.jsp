@@ -10,7 +10,7 @@
 		<select name="viaje" class="form-select">
 			<option value="0"> </option>
 				<c:forEach items="${viajes}" var="viaje">
-					<option value="${viaje.id }">${viaje.origen} --> ${viaje.destino}</option>
+					<option value="${viaje.id}">${viaje.origen} --> ${viaje.destino}</option>
 				</c:forEach>
 		</select>
 	</div>
@@ -34,5 +34,7 @@
 			</c:forEach>
 		</select>
 	</div>
+	
+	
 	<input type="submit" value="Guardar" name="Guardar" class="btn btn-danger">
 </form>
