@@ -29,7 +29,12 @@ public class DestroyCarga extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ModeloCarga cm = new ModeloCarga();
-		cm.delete(Integer.parseInt( request.getParameter("id")));
+		if(cm.delete(Integer.parseInt( request.getParameter("id")))) {
+			response.sendRedirect("IndexCarga?msg=destroy");
+		}else {
+			response.sendRedirect("IndexCarga?msg=noDestroy");
+		}
+		
 		response.sendRedirect("IndexCarga");
 	}
 

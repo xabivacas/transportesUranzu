@@ -37,9 +37,13 @@ public class StoreCliente extends HttpServlet {
 		cl.setDireccion(request.getParameter("direccion"));
 		
 		ModeloCliente mc = new ModeloCliente();
-		mc.insert(cl);
+		if(mc.insert(cl)) {
+			response.sendRedirect("IndexCliente?msg=stored");
+		}else {
+			response.sendRedirect("IndexCliente?msg=noStored");
+		}
 
-		response.sendRedirect("IndexCliente");
+		
 	}
 
 	/**

@@ -30,8 +30,13 @@ public class DestroyCliente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ModeloCliente cm = new ModeloCliente();
-		cm.delete(request.getParameter("cif"));
-		response.sendRedirect("IndexCliente");
+		
+		if(cm.delete(request.getParameter("cif"))) {
+			response.sendRedirect("IndexCliente?msg=destroy");
+		}else {
+			response.sendRedirect("IndexCliente?msg=noDestroy");
+		}
+	
 	}
 
 	/**

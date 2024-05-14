@@ -37,7 +37,12 @@ public class UpdateCarga extends HttpServlet {
 	c.setDimensiones(request.getParameter("dimensionesMod"));
 	c.setViaje(new ModeloViaje().getUno(Integer.parseInt(request.getParameter("viajeMod"))));
 	c.setTipo(request.getParameter("tipoMod"));
-	cm.update(c);
+	if(new ModeloCarga().update(c)) {
+		response.sendRedirect("IndexCarga?msg=modificado");
+	}else {
+		response.sendRedirect("IndexCarga?msg=noModificado");
+	}
+	
 	response.sendRedirect("IndexCarga");
 	}
 

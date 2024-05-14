@@ -34,9 +34,13 @@ public class UpdateCliente extends HttpServlet {
 		cl.setNombre(request.getParameter("nombreMod"));
 		cl.setDireccion(request.getParameter("direccionMod"));
 		
-		new ModeloCliente().update(cl);
+		if(new ModeloCliente().update(cl)) {
+			response.sendRedirect("IndexCliente?msg=modificado");
+		}else {
+			response.sendRedirect("IndexCliente?msg=noModificado");
+		}
 		
-		response.sendRedirect("IndexCliente");
+		
 	}
 
 	/**

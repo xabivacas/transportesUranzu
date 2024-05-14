@@ -39,7 +39,11 @@ public class StoreCarga extends HttpServlet {
 		c.setTipo(request.getParameter("tipo"));
 		
 		ModeloCarga mc = new ModeloCarga();
-		mc.insert(c);
+		if(mc.insert(c)) {
+			response.sendRedirect("IndexCarga?msg=stored");
+		}else {
+			response.sendRedirect("IndexCarga?msg=noStored");
+		}
 
 		response.sendRedirect("IndexCarga");
 	}
