@@ -35,7 +35,6 @@ public class StoreCarga extends HttpServlet {
 		Carga c = new Carga();
 		c.setPeso(Double.parseDouble(request.getParameter("peso")));
 		c.setDimensiones(request.getParameter("dimensiones"));
-		c.setViaje(new ModeloViaje().getUno(Integer.parseInt(request.getParameter("viaje"))));
 		c.setTipo(request.getParameter("tipo"));
 		
 		ModeloCarga mc = new ModeloCarga();
@@ -45,7 +44,6 @@ public class StoreCarga extends HttpServlet {
 			response.sendRedirect("IndexCarga?msg=noStored");
 		}
 
-		response.sendRedirect("IndexCarga");
 	}
 
 	/**

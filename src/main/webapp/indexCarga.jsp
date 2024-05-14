@@ -129,15 +129,6 @@
 								    <input type="text" class="form-control" id="dimensionesMod" name="dimensionesMod" value="${carga.dimensiones}"
 												placeholder="${camionero.apellido}">
 								  </div>
-								    <div class="mb-3">
-										<label>Viaje</label>
-										<select name="viajeMod" class="form-select">
-											<option value="0"> </option>
-												<c:forEach items="${viajes}" var="viaje">
-													<option value="${viaje.id }">${viaje.origen} --> ${viaje.destino}</option>
-												</c:forEach>
-										</select>
-									</div>
 								  <div class="mb-3">
 								    <label for="exampleInputPassword1" class="form-label">Tipo</label>
 								    <input type="text" class="form-control" id="tipoMod" name="tipoMod" value="${carga.tipo}"

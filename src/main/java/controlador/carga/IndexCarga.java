@@ -39,11 +39,11 @@ public class IndexCarga extends HttpServlet {
 
 			
 		
-		
-		request.getRequestDispatcher("indexCarga.jsp").forward(request,response);
 		request.setAttribute("msg", request.getParameter("msg"));
 		request.setAttribute("asig", request.getParameter("asig"));
 		
+		request.getRequestDispatcher("indexCarga.jsp").forward(request,response);
+	
 	}
 
 	/**

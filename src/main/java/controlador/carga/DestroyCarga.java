@@ -35,7 +35,6 @@ public class DestroyCarga extends HttpServlet {
 			response.sendRedirect("IndexCarga?msg=noDestroy");
 		}
 		
-		response.sendRedirect("IndexCarga");
 	}
 
 	/**

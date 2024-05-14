@@ -42,8 +42,6 @@ public class UpdateCarga extends HttpServlet {
 	}else {
 		response.sendRedirect("IndexCarga?msg=noModificado");
 	}
-	
-	response.sendRedirect("IndexCarga");
 	}
 
 	/**
