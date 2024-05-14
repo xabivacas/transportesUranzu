@@ -31,6 +31,8 @@ public class IndexCliente extends HttpServlet {
 		request.setAttribute("clientes", new ModeloCliente().getTodos());
 		
 		request.getRequestDispatcher("indexCliente.jsp").forward(request,response);
+		request.setAttribute("msg", request.getParameter("msg"));
+		request.setAttribute("asig", request.getParameter("asig"));
 	}
 
 	/**
