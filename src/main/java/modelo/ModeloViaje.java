@@ -182,14 +182,11 @@ public class ModeloViaje extends Conector {
 			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=? WHERE id=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
-				java.util.Date fecha = v.getFecha();
-				java.sql.Date sqlDate = new java.sql.Date(fecha.getTime());
-
-				
+		
 				
 				pst.setString(1, v.getOrigen());
 				pst.setString(2, v.getDestino());
-				pst.setInt(4, v.getId());
+				pst.setInt(3, v.getId());
 				
 		        // Establecer la fecha en el PreparedStatement
 		      
