@@ -10,6 +10,7 @@ public class Viaje {
 	private boolean pagado;
 	private int precio;
 	
+	
 	public int getId() {
 		return id;
 	}
