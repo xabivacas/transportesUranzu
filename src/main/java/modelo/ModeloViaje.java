@@ -17,12 +17,15 @@ public class ModeloViaje extends Conector {
 					PreparedStatement pst =conexion.prepareStatement("SELECT * FROM VIAJES");
 					
 					ResultSet rs = pst.executeQuery();
-		            	Viaje viaje = new Viaje();
+		            	
+					
+					while(rs.next()) {
+						Viaje viaje = new Viaje();
 		            	rellenarViaje(viaje, rs);
 						
 
 		            	viajes.add(viaje);
-		            
+					}
 
 		        } catch (SQLException e) {
 		            e.printStackTrace();
@@ -31,7 +34,7 @@ public class ModeloViaje extends Conector {
 		        return viajes;
 
 		 }
-		 public boolean asignarViaje(Viaje viaje,Camion camion ,Camionero camionero) {
+		 public boolean asignarViaje(Viaje viaje,Camion camion ,Camionero camionero, java.util.Date fecha) {
 			 String sql = "INSERT INTO VIAJE_CAMIONES_CAMIONEROS (CAMIONERO,MATRICULA,DESTINO,ORIGEN, FECHA) VALUES (?,?,?,?,?)";
 
 			 try {
@@ -40,6 +43,7 @@ public class ModeloViaje extends Conector {
 				pst.setString(2, camion.getMatricula());
 				pst.setString(3, viaje.getDestino());
 				pst.setString(4, viaje.getOrigen());
+				pst.setDate(5, new java.sql.Date(fecha.getTime()));
 				
 				pst.execute();
 				return true;
@@ -145,7 +149,7 @@ public class ModeloViaje extends Conector {
 
 		}
 		 
-		 public void insert(Viaje v) {
+		 public boolean insert(Viaje v) {
 			 String sql = "INSERT INTO VIAJES (ORIGEN,DESTINO) VALUES (?,?)";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
@@ -156,26 +160,26 @@ public class ModeloViaje extends Conector {
 				pst.setString(2, v.getDestino());
 				
 				pst.execute();
+				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				return false;
 			}
 		 }
-		 public void delete(int id) {
+		 public boolean delete(int id) {
 			 String sql = "DELETE FROM VIAJES  WHERE id=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				pst.setInt(1,id);
 				
 				pst.execute();
+				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				return false;
 			}
 		 }
 		 
-		 public void update(Viaje v) {
-			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=?, FECHA=?  WHERE id=?";
+		 public boolean update(Viaje v) {
+			 String sql = "UPDATE VIAJES SET ORIGEN=?, DESTINO=? WHERE id=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				java.util.Date fecha = v.getFecha();
@@ -185,16 +189,15 @@ public class ModeloViaje extends Conector {
 				
 				pst.setString(1, v.getOrigen());
 				pst.setString(2, v.getDestino());
-				pst.setDate(3, sqlDate);
 				pst.setInt(4, v.getId());
 				
 		        // Establecer la fecha en el PreparedStatement
 		      
 				
 				pst.execute();
+				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				return false;
 			}
 			
 		 }

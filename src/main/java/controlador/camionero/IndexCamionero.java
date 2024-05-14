@@ -34,6 +34,7 @@ public class IndexCamionero extends HttpServlet {
 		ArrayList<Viaje> viajes = new ModeloViaje(). getViajesDisponibles();
 		
 		request.setAttribute("msg", request.getParameter("msg"));
+		request.setAttribute("asig", request.getParameter("asig"));
 		request.setAttribute("camiones", camiones);
 		request.setAttribute("camioneros", camioneros);
 		request.setAttribute("viajes", viajes);

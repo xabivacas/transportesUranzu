@@ -1,6 +1,7 @@
 package controlador;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -34,13 +35,21 @@ public class AsignarViaje extends HttpServlet {
 		Camionero camionero = new ModeloCamionero().getUno(request.getParameter("camionero"));
 		Camion camion = new ModeloCamion().getUno(request.getParameter("camion"));
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("YYYY/MM/DD");
-		Date fecha = new Date();
-		if(new ModeloViaje().asignarViaje(v, camion, camionero)) {
-		response.sendRedirect(request.getParameter("direccion")+"?asig=asignado");
-		}else {
-		response.sendRedirect(request.getParameter("direccion")+"?asig=noAsignado");
+		String date = request.getParameter("fecha");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+			Date fecha = sdf.parse(date);
+			if(new ModeloViaje().asignarViaje(v, camion, camionero,fecha)) {
+				response.sendRedirect(request.getParameter("direccion")+"?asig=asignado");
+				}else {
+				
+				}
+		} catch (ParseException e) {
+			response.sendRedirect(request.getParameter("direccion")+"?asig=noAsignado");
 		}
+
 	}
 
 	/**

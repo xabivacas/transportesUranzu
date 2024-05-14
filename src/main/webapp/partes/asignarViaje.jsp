@@ -35,6 +35,10 @@
 		</select>
 	</div>
 	
+	<div class="mb-3">
+		<label>Fecha</label>
+		<input type="date" class="form-control" name="fecha">
+	</div>
 	
 	<input type="submit" value="Guardar" name="Guardar" class="btn btn-danger">
 </form>

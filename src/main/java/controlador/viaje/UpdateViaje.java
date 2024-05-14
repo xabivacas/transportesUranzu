@@ -37,23 +37,18 @@ public class UpdateViaje extends HttpServlet {
 	Viaje v = new Viaje();
 	
 	v.setId(Integer.parseInt(request.getParameter("idMod")));
-	String fechaModParam = request.getParameter("fechaMod");
-	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    try {
-		Date fechaMod = dateFormat.parse(fechaModParam);
-		v.setFecha(fechaMod);
-	} catch (ParseException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
+
 	v.setOrigen(request.getParameter("origenMod"));
 	v.setDestino(request.getParameter("destinoMod"));
 
 
 	
-	vm.update(v);
-	response.sendRedirect("IndexViaje");
+	if(vm.update(v)) {
+		response.sendRedirect("IndexViaje?msg=modificado");
+	}else {
+		response.sendRedirect("IndexViaje?msg=noModificado");
+	}
+	
 	}
 
 	/**

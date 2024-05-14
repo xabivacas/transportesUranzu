@@ -29,8 +29,13 @@ public class DestroyViaje extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ModeloViaje vm = new ModeloViaje();
-		vm.delete(Integer.parseInt(request.getParameter("id")));
-		response.sendRedirect("IndexViaje");
+		
+		if(vm.delete(Integer.parseInt(request.getParameter("id")))) {
+			response.sendRedirect("IndexViaje?msg=destroy");
+		}else {
+			response.sendRedirect("IndexViaje?msg=noDestroy");
+		}
+		
 	}
 
 	/**
