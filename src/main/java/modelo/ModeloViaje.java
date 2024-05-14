@@ -30,8 +30,8 @@ public class ModeloViaje extends Conector {
 		        }
 		        return viajes;
 		    }
-		 public void asignarViaje(Viaje viaje,Camion camion ,Camionero camionero) {
-			 String sql = "INSERT INTO VIAJE_CAMIONES_CAMIONEROS (CAMIONERO,MATRICULA,DESTINO,ORIGEN, FECHA) VALUES (?,?,?,?,?)";
+		 public boolean asignarViaje(Viaje viaje,Camion camion ,Camionero camionero) {
+			 String sql = "INSERT INTO VIAJE_CAMIONES_CAMIONEROS (CAMIONERO,MATRICULA,DESTINO,ORIGEN) VALUES (?,?,?,?)";
 			 
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
@@ -39,12 +39,11 @@ public class ModeloViaje extends Conector {
 				pst.setString(2, camion.getMatricula());
 				pst.setString(3, viaje.getDestino());
 				pst.setString(4, viaje.getOrigen());
-				pst.setDate(5, new java.sql.Date(viaje.getFecha().getTime()));
 				
 				pst.execute();
+				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				return false;
 			}
 			 
 		 }

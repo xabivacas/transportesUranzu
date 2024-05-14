@@ -34,9 +34,13 @@ public class UpdateCamion extends HttpServlet {
 		c.setMarca(request.getParameter("marcaMod"));
 		c.setModelo(request.getParameter("modeloMod"));
 		
-		new ModeloCamion().updateCamion(c);
+		if(new ModeloCamion().updateCamion(c)) {
+			response.sendRedirect("IndexCamion?msg=modificado");
+		}else {
+			response.sendRedirect("IndexCamion?msg=noModificado");
+		}
 		
-		response.sendRedirect("IndexCamion");
+		
 	}
 
 	/**

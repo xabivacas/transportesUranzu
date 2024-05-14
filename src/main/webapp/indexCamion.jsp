@@ -71,14 +71,20 @@
 			<main>
 
 				<aside class="shadow bg-light">
+
 					<%@ include file="/partes/formularioCamion.jsp" %>
 					<%@ include file="/partes/asignarViaje.jsp" %>
 				</aside>
 
 				<div class="datos m-4 container-fluid">
-
 					<table class="table">
-
+						<%@ include file="/partes/validaciones.jsp" %>
+						<c:if test="${msg=='matriculaRequerida' }">
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								<strong>UPS!</strong> Se te ha olvidado meter la matricula
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						</c:if>
 						<thead>
 							<tr>
 								<th scope="col">Matricula</th>
@@ -115,7 +121,7 @@
 							</tr>
 
 						</c:forEach>
-
+				</table>
 				</div>
 
 				<!-- Modales -->

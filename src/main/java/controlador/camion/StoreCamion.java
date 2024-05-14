@@ -35,9 +35,18 @@ public class StoreCamion extends HttpServlet {
 		c.setMarca(request.getParameter("marca"));
 		c.setModelo(request.getParameter("modelo"));
 		
-		new ModeloCamion().insertCamion(c);
+		if(c.getMatricula().isBlank()||c.getMatricula() == null) {
+			response.sendRedirect("IndexCamion?msg=matriculaRequerida");
+		}else {
+			if(new ModeloCamion().insertCamion(c)) {
+				response.sendRedirect("IndexCamion?msg=stored");
+			}else {
+				response.sendRedirect("IndexCamion?msg=noStored");
+			}
+		}
+
 		
-		response.sendRedirect("IndexCamion");
+		
 	}
 
 	/**

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -138,7 +139,12 @@ pageEncoding="UTF-8"%>
 			        
 			      </div>
 			      <div class="modal-body">
-			      
+                <c:if test="${msg=='error'}">
+	                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+					  <strong>UPS!</strong> Parece ser que el usuario y/o contraseña son incorrectos
+					  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+                </c:if>
 			        <form action="Login">
 			        
 			        	<!-- Nombre -->
@@ -154,7 +160,7 @@ pageEncoding="UTF-8"%>
 						</div>
 	
 					  <button type="submit" class="btn btn-danger">Enviar</button>
-					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 					</form>
 					
 			      </div>

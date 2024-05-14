@@ -60,7 +60,7 @@ public class ModeloCamion extends Conector{
 		c.setModelo(rs.getString("modelo"));
 	}
 	
-	public void insertCamion(Camion c) {
+	public boolean insertCamion(Camion c) {
 		String sql = "INSERT INTO CAMIONES (MATRICULA,MARCA,MODELO) VALUES (?,?,?)";
 		
 		try {
@@ -71,26 +71,27 @@ public class ModeloCamion extends Conector{
 			pst.setString(3, c.getModelo());
 			
 			pst.execute();
+			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
 		
 	}
-	public void deleteCamion(String matricula) {
+	public boolean deleteCamion(String matricula) {
 		String sql = "DELETE FROM CAMIONES WHERE MATRICULA=?";
 		
 		try {
 			PreparedStatement pst = conexion.prepareStatement(sql);
 			pst.setString(1, matricula);
 			pst.execute();
+			
+			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
 		
 	}
-	public void updateCamion(Camion c) {
+	public boolean updateCamion(Camion c) {
 		String sql ="UPDATE CAMIONES SET MARCA=?,MODELO=? WHERE MATRICULA=?";
 		
 		try {
@@ -101,9 +102,10 @@ public class ModeloCamion extends Conector{
 			pst.setString(3, c.getMatricula());
 			
 			pst.execute();
+			
+			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
 
 	}

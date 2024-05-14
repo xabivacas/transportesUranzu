@@ -28,9 +28,13 @@ public class DestroyCamion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		new ModeloCamion().deleteCamion(request.getParameter("matricula"));
 		
-		response.sendRedirect("IndexCamion");
+		
+		if(new ModeloCamion().deleteCamion(request.getParameter("matricula"))) {
+			response.sendRedirect("IndexCamion?msg=destroy");
+		}else {
+			response.sendRedirect("IndexCamion?msg=noDestroy");
+		}
 	}
 
 	/**

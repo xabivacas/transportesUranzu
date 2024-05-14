@@ -28,6 +28,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		User user = new ModeloUsuario().getUser(request.getParameter("nombre"));
 		if (user.getContrasenia() != null) {
 			if(user.getContrasenia().equals(request.getParameter("password"))) {
@@ -37,10 +38,10 @@ public class Login extends HttpServlet {
 					response.sendRedirect("IndexCliente");
 				}
 			}else {
-				response.sendRedirect("Index");
+				response.sendRedirect("Index?msg=error");
 			}
 		}else {
-			response.sendRedirect("Index");
+			response.sendRedirect("Index?msg=error");
 		}
 		
 	}
