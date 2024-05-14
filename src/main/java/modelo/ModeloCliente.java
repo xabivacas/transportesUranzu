@@ -59,7 +59,7 @@ public class ModeloCliente extends Conector{
 		cl.setDireccion(rs.getString("direccion"));
 	}
 	 
-	 public void insert(Cliente cl) {
+	 public boolean insert(Cliente cl) {
 		 String sql = "INSERT INTO CLIENTES (CIF,NOMBRE,DIRECCION) VALUES (?,?,?)";
 		 try {
 			PreparedStatement pst = conexion.prepareStatement(sql);
@@ -68,25 +68,25 @@ public class ModeloCliente extends Conector{
 			pst.setString(3, cl.getDireccion());
 			
 			pst.execute();
+			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
 	 }
-	 public void delete(String cif) {
+	 public boolean delete(String cif) {
 		 String sql = "DELETE FROM CLIENTES WHERE CIF=?";
 		 try {
 			PreparedStatement pst = conexion.prepareStatement(sql);
 			pst.setString(1, cif);
 			
 			pst.execute();
+			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
 	 }
 	 
-	 public void update(Cliente cl) {
+	 public boolean update(Cliente cl) {
 		 String sql = "UPDATE CLIENTES SET NOMBRE=?, DIRECCION=? WHERE CIF=?";
 		 try {
 			PreparedStatement pst = conexion.prepareStatement(sql);
@@ -95,9 +95,9 @@ public class ModeloCliente extends Conector{
 			pst.setString(3, cl.getCif());
 			
 			pst.execute();
+			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
 		 
 	 }

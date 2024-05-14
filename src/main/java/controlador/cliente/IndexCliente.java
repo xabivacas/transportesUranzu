@@ -30,6 +30,9 @@ public class IndexCliente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("clientes", new ModeloCliente().getTodos());
 		
+		
+		request.setAttribute("msg", request.getParameter("msg"));
+
 		request.getRequestDispatcher("indexCliente.jsp").forward(request,response);
 	}
 
