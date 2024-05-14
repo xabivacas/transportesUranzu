@@ -11,10 +11,12 @@ public class ModeloCarga extends Conector {
 		 public ArrayList<Carga> getTodos() {
 		        
 			 ArrayList<Carga> cargas = new ArrayList<>();
-
-		        try {
-		            Statement st = conexion.createStatement();
-		            ResultSet rs = st.executeQuery("SELECT * FROM CARGAS");
+				
+				
+				try {		
+					PreparedStatement pst =conexion.prepareStatement("SELECT * FROM CARGAS");
+					
+					ResultSet rs = pst.executeQuery();
 		            while (rs.next()) {
 		            	Carga carga = new Carga();
 		            	rellenarCarga(carga, rs);

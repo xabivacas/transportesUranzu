@@ -16,7 +16,7 @@
 		<body>
 
 			<!-- Header -->
-			<header class="bg-light">
+			<header class="bg-light container-fluid">
 
 				<!-- Nav responsive -->
 				<div class="pequeno ">
@@ -41,17 +41,17 @@
 				</div>
 
 				<!-- Logo -->
-				<div class="m-0 d-flex col-xl-2 col-lg-3 col-6 justify-content-center ">
+				<div class="col-lg-3 col-6  ">
 					<img src="recursos/logo-uranzu-transportes.jpg" class="shadow" alt="...">
 				</div>
 
 				<!--Navegador-->
-				<div class="m-0 grande d-flex col-xl-8 col-lg-6 justify-content-center">
+				<div class="grande col-lg-7">
 					<%@ include file="/partes/navegador.jsp" %>
 				</div>
 
 				<!-- Cerrar sesion -->
-				<div class="m-0 col-xl-2  col-lg-3 col-6 justify-content-start">
+				<div class="col-lg-2 col-md-2 col-6">
 					<a href="index.jsp">
 						<button type="button" class="btn btn-danger">Cerrar Sesion</button>
 					</a>

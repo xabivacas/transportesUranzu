@@ -63,7 +63,7 @@
 	
 			<aside class=" bg-light">
 					<%@ include file="/partes/formularioViaje.jsp" %>
-					
+					<%@ include file="/partes/asignarViaje.jsp" %>
 			</aside>
 			
 	      <div class="datos container-fluid">

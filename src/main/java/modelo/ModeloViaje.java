@@ -10,26 +10,26 @@ import java.util.ArrayList;
 public class ModeloViaje extends Conector {
 		
 		 public ArrayList<Viaje> getTodos() {
-		        
 			 ArrayList<Viaje> viajes = new ArrayList<>();
-
-		        try {
-		            Statement st = conexion.createStatement();
-		            ResultSet rs = st.executeQuery("SELECT * FROM VIAJES");
-		            while (rs.next()) {
+				
+				
+				try {		
+					PreparedStatement pst =conexion.prepareStatement("SELECT * FROM VIAJES");
+					
+					ResultSet rs = pst.executeQuery();
 		            	Viaje viaje = new Viaje();
 		            	rellenarViaje(viaje, rs);
 						
 
 		            	viajes.add(viaje);
-		            }
+		            
 
 		        } catch (SQLException e) {
 		            e.printStackTrace();
 		            return null;
 		        }
 		        return viajes;
-		    }
+		 }
 		 public void asignarViaje(Viaje viaje,Camion camion ,Camionero camionero) {
 			 String sql = "INSERT INTO VIAJE_CAMIONES_CAMIONEROS (CAMIONERO,MATRICULA,DESTINO,ORIGEN, FECHA) VALUES (?,?,?,?,?)";
 			 
