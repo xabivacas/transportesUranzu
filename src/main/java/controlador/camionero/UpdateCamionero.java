@@ -35,8 +35,12 @@ public class UpdateCamionero extends HttpServlet {
 	c.setNombre(request.getParameter("nombreMod"));
 	c.setApellido(request.getParameter("apellidoMod"));
 	
-	cm.update(c);
-	response.sendRedirect("IndexCamionero");
+	if(cm.update(c)) {
+		response.sendRedirect("IndexCamionero?msg=modificado");
+	}else {
+		response.sendRedirect("IndexCamionero?msg=noModificado");
+	}
+	
 	}
 
 	/**

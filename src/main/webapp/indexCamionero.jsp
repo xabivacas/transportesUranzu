@@ -69,6 +69,7 @@
 				</aside>
 
 				<div class="datos m-4 container-fluid">
+				<%@ include file="/partes/validaciones.jsp" %>
 					<div class="row">
 						<table class="table">
 							<thead>

@@ -37,9 +37,13 @@ public class StoreCamionero extends HttpServlet {
 		c.setApellido(request.getParameter("apellido"));
 		
 		ModeloCamionero mc = new ModeloCamionero();
-		mc.insert(c);
+		if(mc.insert(c)) {
+			response.sendRedirect("IndexCamionero?msg=stored");
+		}else {
+			response.sendRedirect("IndexCamionero?msg=noStored");
+		}
 
-		response.sendRedirect("IndexCamionero");
+		
 	}
 
 	/**

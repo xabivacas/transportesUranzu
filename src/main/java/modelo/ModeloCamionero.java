@@ -58,7 +58,7 @@ public class ModeloCamionero extends Conector {
 			c.setViajes(new ModeloViaje().getViajesCamionero(c));
 		}
 		 
-		 public void insert(Camionero c) {
+		 public boolean insert(Camionero c) {
 			 String sql = "INSERT INTO CAMIONEROS (DNI,NOMBRE,APELLIDO) VALUES (?,?,?)";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
@@ -67,25 +67,27 @@ public class ModeloCamionero extends Conector {
 				pst.setString(3, c.getApellido());
 				
 				pst.execute();
+				
+				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				return false;
+		
 			}
 		 }
-		 public void delete(String dni) {
+		 public boolean delete(String dni) {
 			 String sql = "DELETE FROM CAMIONEROS WHERE DNI=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				pst.setString(1, dni);
 				
 				pst.execute();
+				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				return false;
 			}
 		 }
 		 
-		 public void update(Camionero c) {
+		 public boolean update(Camionero c) {
 			 String sql = "UPDATE CAMIONEROS SET NOMBRE=?, APELLIDO=? WHERE DNI=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
@@ -94,9 +96,9 @@ public class ModeloCamionero extends Conector {
 				pst.setString(3, c.getDni());
 				
 				pst.execute();
+				return true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				return false;
 			}
 			 
 		 }
