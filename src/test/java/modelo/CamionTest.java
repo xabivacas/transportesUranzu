@@ -11,7 +11,6 @@ package modelo;
 
 	    @Before
 	    public void setUp() {
-	        // Configuración inicial antes de cada prueba
 	        camion = new Camion();
 	    }
 
