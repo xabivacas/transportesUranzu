@@ -77,7 +77,7 @@
 				</aside>
 
 				<div class="datos m-4 container-fluid">
-				
+				<%@ include file="/partes/validaciones.jsp" %>
 					<table class="table">
 						<c:if test="${msg=='matriculaRequerida' }">
 							<div class="alert alert-warning alert-dismissible fade show" role="alert">
