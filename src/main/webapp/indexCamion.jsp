@@ -80,7 +80,6 @@
 				<%@ include file="/partes/validaciones.jsp" %>
 				
 					<table class="table">
-						<%@ include file="/partes/validaciones.jsp" %>
 						<c:if test="${msg=='matriculaRequerida' }">
 							<div class="alert alert-warning alert-dismissible fade show" role="alert">
 								<strong>UPS!</strong> Se te ha olvidado meter la matricula
