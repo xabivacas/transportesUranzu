@@ -65,7 +65,10 @@ public class ModeloViaje extends Conector {
 				while(rs.next()) {
 					Viaje v = new Viaje();
 					
-					rellenarViaje(v,rs);
+					v.setId(rs.getInt("id"));
+					v.setOrigen(rs.getString("origen"));
+					v.setDestino(rs.getString("destino"));
+					v.setFecha(rs.getDate("fecha"));
 					
 					viajes.add(v);
 				}
