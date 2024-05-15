@@ -56,7 +56,6 @@ public class ModeloCarga extends Conector {
 			c.setId(rs.getInt("id"));
 			c.setPeso(rs.getDouble("peso"));
 			c.setDimensiones(rs.getString("dimensiones"));
-			c.setViaje(new ModeloViaje().getUno(rs.getInt("viaje")));
 			c.setTipo(rs.getString("tipo"));
 
 		}
@@ -91,14 +90,13 @@ public class ModeloCarga extends Conector {
 		 }
 		 
 		 public void update(Carga c) {
-			 String sql = "UPDATE CARGAS SET PESO=?, DIMENSIONES=?, VIAJE=?, TIPO=? WHERE ID=?";
+			 String sql = "UPDATE CARGAS SET PESO=?, DIMENSIONES=?, TIPO=? WHERE ID=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
 				pst.setDouble(1, c.getPeso());
 				pst.setString(2, c.getDimensiones());
-				pst.setInt(3,c.getViaje().getId());
-				pst.setString(4,c.getTipo());
-				pst.setInt(5, c.getId());
+				pst.setString(3,c.getTipo());
+				pst.setInt(4, c.getId());
 
 				
 				pst.execute();
