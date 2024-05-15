@@ -76,7 +76,12 @@
 
 				<div class="datos m-4 container-fluid">
 			<%@ include file="/partes/validaciones.jsp" %>
-
+				<c:if test="${msg=='sinCif' }">
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						<strong>UPS!</strong> Hermano se te ha olvidado meter el CIF del cliente
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				</c:if>
 					<table class="table">
 
 						<thead>

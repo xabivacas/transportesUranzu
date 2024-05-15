@@ -6,7 +6,7 @@
       <form action="StoreCamion" method="post" class="bg-light">
             <div class="mb-3">
               <label for="matricula" class="form-label">Matricula</label>
-              <input type="text" class="form-control" id="matricula" name="matricula" aria-describedby="matricula">
+              <input type="text" class="form-control" id="matricula" name="matricula" aria-describedby="matricula" required>
             </div>
             <div class="mb-3">
               <label for="Marca" class="form-label">Marca</label>

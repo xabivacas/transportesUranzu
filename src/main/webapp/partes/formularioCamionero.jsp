@@ -6,7 +6,7 @@
       <form action="StoreCamionero" method="post" class="bg-light">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">DNI</label>
-              <input type="text" class="form-control" id="dni" name="dni" aria-describedby="dni">
+              <input type="text" class="form-control" id="dni" name="dni" aria-describedby="dni" required>
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Nombre</label>

@@ -31,18 +31,32 @@ public class StoreCarga extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		Carga c = new Carga();
-		c.setPeso(Double.parseDouble(request.getParameter("peso")));
-		c.setDimensiones(request.getParameter("dimensiones"));
-		c.setTipo(request.getParameter("tipo"));
 		
-		ModeloCarga mc = new ModeloCarga();
-		if(mc.insert(c)) {
-			response.sendRedirect("IndexCarga?msg=stored");
-		}else {
-			response.sendRedirect("IndexCarga?msg=noStored");
+		try {
+			Carga c = new Carga();
+			c.setPeso(Double.parseDouble(request.getParameter("peso")));
+			c.setDimensiones(request.getParameter("dimensiones"));
+			c.setTipo(request.getParameter("tipo"));
+			if(c.getPeso()<=0) {
+				throw new java.lang.NumberFormatException("numero menor a 0");
+			}else {
+				ModeloCarga mc = new ModeloCarga();
+				if(mc.insert(c)) {
+					response.sendRedirect("IndexCarga?msg=stored");
+				}else {
+					response.sendRedirect("IndexCarga?msg=noStored");
+				}
+			}
+
+		}catch(java.lang.NumberFormatException e) {
+			response.sendRedirect("IndexCarga?msg=sinPeso");
 		}
+		
+		
+
+		
+
+
 
 	}
 

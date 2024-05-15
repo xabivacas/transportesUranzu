@@ -48,7 +48,7 @@
 <!-- Asignar viajes -->
 <c:if test="${asig=='asignado' }">
 	<div class="alert alert-success alert-dismissible fade show" role="alert">
-		<strong>Ok!</strong>Viaje asignado
+		<strong>Ok!</strong> Viaje asignado
 		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	</div>
 </c:if><c:if test="${asig=='noAsignado' }">

@@ -90,7 +90,9 @@ public class ModeloCarga extends Conector {
 			}
 		 }
 		 
+
 		 public boolean update(Carga c) {
+
 			 String sql = "UPDATE CARGAS SET PESO=?, DIMENSIONES=?, TIPO=? WHERE ID=?";
 			 try {
 				PreparedStatement pst = conexion.prepareStatement(sql);
