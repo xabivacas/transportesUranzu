@@ -40,12 +40,21 @@ public class StoreViaje extends HttpServlet {
 		v.setOrigen(request.getParameter("origen"));
 		v.setDestino(request.getParameter("destino"));
 		
-		ModeloViaje mv = new ModeloViaje();
-		if(mv.insert(v)) {
-			response.sendRedirect("IndexViaje?msg=stored");
+		if(v.getOrigen().isBlank()||v.getDestino().isBlank()) {
+			response.sendRedirect("IndexViaje?msg=sinDatos");
 		}else {
-			response.sendRedirect("IndexViaje?msg=noStored");
+			if(v.getOrigen().equalsIgnoreCase(v.getDestino())) {
+				response.sendRedirect("IndexViaje?msg=repes");
+			}else {
+				ModeloViaje mv = new ModeloViaje();
+				if(mv.insert(v)) {
+					response.sendRedirect("IndexViaje?msg=stored");
+				}else {
+					response.sendRedirect("IndexViaje?msg=noStored");
+				}
+			}
 		}
+
 
 		
 	}

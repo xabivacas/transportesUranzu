@@ -36,12 +36,17 @@ public class StoreCliente extends HttpServlet {
 		cl.setNombre(request.getParameter("nombre"));
 		cl.setDireccion(request.getParameter("direccion"));
 		
-		ModeloCliente mc = new ModeloCliente();
-		if(mc.insert(cl)) {
-			response.sendRedirect("IndexCliente?msg=stored");
+		if(cl.getCif().isBlank()) {
+			response.sendRedirect("IndexCliente?msg=sinCif");
 		}else {
-			response.sendRedirect("IndexCliente?msg=noStored");
+			ModeloCliente mc = new ModeloCliente();
+			if(mc.insert(cl)) {
+				response.sendRedirect("IndexCliente?msg=stored");
+			}else {
+				response.sendRedirect("IndexCliente?msg=noStored");
+			}
 		}
+
 
 		
 	}

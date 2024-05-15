@@ -67,7 +67,12 @@
 		
       <div class="datos m-4 container-fluid">
       	<%@ include file="/partes/validaciones.jsp" %>
-      	
+      	<c:if test="${msg=='sinPeso' }">
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<strong>UPS!</strong> Tio, es fisicamente imposible que la carga peso nada, miralo bien
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</c:if>
 		<table class="table">
 					<thead>
 						<tr>

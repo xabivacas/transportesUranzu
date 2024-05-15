@@ -7,7 +7,7 @@
             
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Peso</label>
-              <input type="text" class="form-control" id="peso" name="peso">
+              <input type="number" class="form-control" id="peso" name="peso">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Dimensiones</label>
