@@ -132,12 +132,12 @@
 								  <div class="mb-3">
 								    <label for="exampleInputPassword1" class="form-label">Dimensiones</label>
 								    <input type="text" class="form-control" id="dimensionesMod" name="dimensionesMod" value="${carga.dimensiones}"
-												placeholder="${camionero.apellido}">
+												placeholder="${carga.dimensiones}">
 								  </div>
 								  <div class="mb-3">
 								    <label for="exampleInputPassword1" class="form-label">Tipo</label>
 								    <input type="text" class="form-control" id="tipoMod" name="tipoMod" value="${carga.tipo}"
-												placeholder="${camionero.tipo}">
+												placeholder="${carga.tipo}">
 								  </div>
 
 								  <button type="submit" class="btn btn-danger"  data-bs-dismiss="modal">Guardar</button>
